@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Mail, Phone, MapPin, Send, Check, AlertCircle, Loader2 } from "lucide-react";
-import portfolioContext from "../../server/data/portfolioContext.json";
+import portfolioContext from "../../data/portfolioContext.json";
+import { apiUrl } from "../config/api.js";
 
 export default function PageContact() {
   const [formData, setFormData] = useState({
@@ -53,7 +54,7 @@ export default function PageContact() {
     setSuccessMsg(null);
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(apiUrl("/api/contact"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

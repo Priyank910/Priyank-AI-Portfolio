@@ -1,6 +1,6 @@
 import React from "react";
 import { Briefcase, Calendar, MapPin, CheckCircle, Store, ShieldCheck } from "lucide-react";
-import portfolioContext from "../../server/data/portfolioContext.json";
+import portfolioContext from "../../data/portfolioContext.json";
 
 export default function PageExperience() {
   const experiences = portfolioContext.experience;

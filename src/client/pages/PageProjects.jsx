@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Sparkles, Brain, Check, Github, Loader2, X } from "lucide-react";
-import portfolioContext from "../../server/data/portfolioContext.json";
+import portfolioContext from "../../data/portfolioContext.json";
+import { apiUrl } from "../config/api.js";
 
 export default function PageProjects() {
   const [selectedProjectId, setSelectedProjectId] = useState(null);
@@ -13,7 +14,7 @@ export default function PageProjects() {
     setAiExplanation(null);
 
     try {
-      const res = await fetch("/api/ai/explain-project", {
+      const res = await fetch(apiUrl("/api/ai/explain-project"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ projectId }),

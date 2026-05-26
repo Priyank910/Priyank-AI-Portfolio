@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { MessageSquare, X } from "lucide-react";
+import { apiUrl } from "../config/api.js";
 
 const MAX_MESSAGE_LENGTH = 2000;
 
@@ -104,7 +105,7 @@ export default function AIChatBot({
           text: msg.text,
         }));
 
-      const res = await fetch("/api/ai/chat", {
+      const res = await fetch(apiUrl("/api/ai/chat"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

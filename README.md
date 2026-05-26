@@ -110,31 +110,69 @@ To guarantee zero server crashes in varying sandbox environments:
 
 ---
 
-## ⚡ Deployment & Production Guide
+## ⚡ Deployment (Vercel + Render)
 
-This portfolio is fully optimized to run on modern PaaS hosts like **Render**, **Railway**, or standard VPS instances.
+This project uses a **split architecture**:
 
-### 🌐 Environment Variables
-Copy `.env.example` to `.env` and fill in:
-```env
-GEMINI_API_KEY="your-gemini-api-key"
-EMAIL_USER="your.email@gmail.com"
-EMAIL_PASS="your-gmail-app-password"
-NODE_ENV=production
-PORT=3000
-MONGO_URI="your-mongodb-connection-string"  # optional
+| Layer | Host | Domain |
+|-------|------|--------|
+| Frontend (Vite + React) | Vercel | `https://priyankchavda.info` |
+| Backend (Express API) | Render | `https://api.priyankchavda.info` |
+
+### Local development
+
+Run **two terminals** from the project root:
+
+```bash
+# Terminal 1 — API (port 8080)
+cp .env.example .env
+# Set GEMINI_API_KEY, EMAIL_USER, EMAIL_PASS in .env
+npm run dev:server
+
+# Terminal 2 — Frontend (port 5173)
+# Create .env with: VITE_API_URL=http://localhost:8080
+npm run dev:client
 ```
 
-### 📦 Render Deployment
-1. Import your repository into **Render Dashboard**.
-2. Create a new **Web Service**.
-3. Apply these settings:
-   - **Environment**: `Node`
-   - **Build Command**: `npm install && npm run build`
-   - **Start Command**: `npm run start`
-4. Set `NODE_ENV=production`, `GEMINI_API_KEY`, `EMAIL_USER`, and `EMAIL_PASS` in the host environment panel.
+### Frontend environment (Vercel)
 
-### 🚀 Railway Deployment
-1. Connect GitHub to **Railway**.
-2. Press "New Project" -> "Deploy from GitHub repo".
-3. Railway automatically detects the `package.json` package scripts and launches.
+| Variable | Value |
+|----------|--------|
+| `VITE_API_URL` | `https://api.priyankchavda.info` |
+
+### Backend environment (Render)
+
+| Variable | Value |
+|----------|--------|
+| `NODE_ENV` | `production` |
+| `GEMINI_API_KEY` | Your Gemini API key |
+| `EMAIL_USER` | Gmail address |
+| `EMAIL_PASS` | Gmail app password |
+| `PORT` | Set automatically by Render |
+
+Optional: `CORS_ORIGINS` (comma-separated) if you add preview domains.
+
+### Vercel settings
+
+- **Framework Preset**: Vite
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **Install Command**: `npm install`
+- Add `vercel.json` (included) for SPA routing
+
+### Render settings
+
+- **Root Directory**: `/` (repo root)
+- **Build Command**: `npm install && npm run build:server`
+- **Start Command**: `npm start`
+- **Health Check Path**: `/api/health`
+
+### DNS (manual)
+
+**Frontend** (`priyankchavda.info` → Vercel):
+
+- `A` / `CNAME` as instructed by Vercel for apex and `www`
+
+**API** (`api.priyankchavda.info` → Render):
+
+- `CNAME` `api` → your Render service hostname (e.g. `your-service.onrender.com`)

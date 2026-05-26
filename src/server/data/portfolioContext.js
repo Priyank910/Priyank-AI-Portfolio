@@ -4,6 +4,7 @@ import path from "path";
 function resolvePortfolioContextPath() {
   const candidates = [
     path.join(process.cwd(), "dist", "data", "portfolioContext.json"),
+    path.join(process.cwd(), "src", "data", "portfolioContext.json"),
     path.join(process.cwd(), "src", "server", "data", "portfolioContext.json"),
   ];
 
@@ -14,7 +15,7 @@ function resolvePortfolioContextPath() {
   }
 
   throw new Error(
-    "portfolioContext.json not found. Run npm run build or ensure src/server/data/portfolioContext.json exists.",
+    "portfolioContext.json not found. Run npm run build:server or ensure src/data/portfolioContext.json exists.",
   );
 }
 

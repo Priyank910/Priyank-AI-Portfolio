@@ -1,14 +1,20 @@
 import fs from "fs";
 import path from "path";
 
-const source = path.join(process.cwd(), "src", "server", "data", "portfolioContext.json");
-const destDir = path.join(process.cwd(), "dist", "data");
-const dest = path.join(destDir, "portfolioContext.json");
+const sources = [
+  path.join(process.cwd(), "src", "data", "portfolioContext.json"),
+  path.join(process.cwd(), "src", "server", "data", "portfolioContext.json"),
+];
 
-if (!fs.existsSync(source)) {
-  console.error("Missing source:", source);
+const source = sources.find((p) => fs.existsSync(p));
+
+if (!source) {
+  console.error("Missing portfolioContext.json in src/data or src/server/data");
   process.exit(1);
 }
+
+const destDir = path.join(process.cwd(), "dist", "data");
+const dest = path.join(destDir, "portfolioContext.json");
 
 fs.mkdirSync(destDir, { recursive: true });
 fs.copyFileSync(source, dest);
