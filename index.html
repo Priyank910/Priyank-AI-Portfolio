@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script>
+      // Gracefully prevent global scope collisions and TypeErrors when
+      // environment tools, sandboxes, or extensions try to override window.fetch
+      (function () {
+        try {
+          var originalFetch = window.fetch;
+          var currentFetch = originalFetch;
+          Object.defineProperty(window, "fetch", {
+            get: function () {
+              return currentFetch;
+            },
+            set: function (val) {
+              currentFetch = val;
+            },
+            configurable: true,
+            enumerable: true,
+          });
+        } catch (e) {
+          console.warn("Could not patch fetch descriptor:", e);
+        }
+      })();
+    </script>
+    <title>Priyank Chavda | MERN &amp; Generative AI Engineer</title>
+    <meta
+      name="description"
+      content="Full Stack MERN Developer & Generative AI Engineer building modern AI-powered web applications."
+    />
+    <meta name="theme-color" content="#000000" />
+    <meta name="author" content="Priyank Chavda" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="canonical" href="https://priyankchavda.in/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://priyankchavda.in/" />
+    <meta property="og:title" content="Priyank Chavda | MERN & Generative AI Engineer" />
+    <meta
+      property="og:description"
+      content="Full Stack MERN Developer & Generative AI Engineer building modern AI-powered web applications."
+    />
+    <meta property="og:image" content="https://priyankchavda.in/favicon.png" />
+    <meta property="og:locale" content="en_IN" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Priyank Chavda | MERN & Generative AI Engineer" />
+    <meta
+      name="twitter:description"
+      content="Full Stack MERN Developer & Generative AI Engineer building modern AI-powered web applications."
+    />
+    <meta name="twitter:image" content="https://priyankchavda.in/favicon.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

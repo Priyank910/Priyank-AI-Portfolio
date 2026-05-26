@@ -1,0 +1,154 @@
+{
+  "personal": {
+    "name": "Priyank Chavda",
+    "title": "Full Stack MERN Developer & Generative AI Engineer",
+    "location": "Gujarat, India",
+    "email": "priyankchavda910@gmail.com",
+    "phone": "+91 9512034134",
+    "github": "https://github.com/Priyank910",
+    "linkedin": "https://www.linkedin.com/in/priyank-chavda-gj",
+    "website": "https://priyankchavda.in",
+    "shortBio": "Highly innovative MERN Stack Developer specializing in AI-powered applications, Generative AI integrations, and scalable full-stack systems.",
+    "currentFocus": "Building AI-first MERN applications using Large Language Models (LLMs)."
+  },
+  "skills": {
+    "languages": ["JavaScript", "Python", "C", "C++", "PHP", "HTML", "CSS"],
+    "frameworks": ["React", "Node.js", "Express.js", "Django", "Bootstrap", "Vite"],
+    "databases": ["MongoDB"],
+    "tools": ["Git", "GitHub", "Shopify"],
+    "ai": ["Prompt Engineering", "Gemini API", "OpenAI API", "OpenRouter API", "GenAI Integrations"]
+  },
+  "experience": [
+    {
+      "role": "E-commerce Developer & Manager",
+      "company": "Shopify E-commerce Business",
+      "period": "2025",
+      "highlights": [
+        "Architected and deployed multiple e-commerce stores (Clothing, Beauty) from end-to-end, establishing robust foundational infrastructure for scalability.",
+        "Optimized e-commerce architecture and streamlined user interfaces to significantly enhance the shopping experience and conversion rates.",
+        "Directed comprehensive domain management, including DNS configuration and hosting setup."
+      ]
+    },
+    {
+      "role": "Payment Poster",
+      "company": "Ifedora Services Pvt. Ltd.",
+      "period": "June 2025 - Feb 2026",
+      "highlights": [
+        "Managed accurate posting of payments for a US medical billing company over an 8-month period, ensuring high data integrity and adherence to strict compliance protocols."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "gym-ai",
+      "title": "Gym AI Personal Trainer",
+      "status": "In Progress",
+      "techStack": ["MERN Stack", "GenAI", "Google OAuth"],
+      "description": "An intelligent fitness tracking application featuring a contextual AI coach that analyzes user progress to dynamically suggest personalized workout routines.",
+      "features": [
+        "Dynamic workout routine suggestion guided by contextual AI.",
+        "Secure user authentication with Google OAuth.",
+        "Manual exercise logging & bulk routine uploads via CSV parsing.",
+        "Interactive dashboard displaying exercise progress trends."
+      ],
+      "challengesSolved": "Solved CSV parsing edge cases for user-defined workout schemas by adding automatic format detection, and lowered token consumption in the AI model using summarized workout histories.",
+      "architecture": "MVC Architecture. Express.js REST API layer queries MongoDB for exercises, feeds summaries to Gemini model via Server-Side API, and returns beautiful insights to React chart interfaces using Tailwind."
+    },
+    {
+      "id": "plant-analysis-ai",
+      "title": "AI Plant Analysis Tool",
+      "status": "Completed",
+      "techStack": ["React", "Node.js", "Express.js", "Gemini API"],
+      "description": "A full-stack AI application that processes and analyzes plant health, diseases, and growth data, leveraging an external API to generate actionable gardening insights.",
+      "features": [
+        "Responsive MERN interface for seamless file/image uploads.",
+        "Dynamic gardening suggestions and problem diagnosis responses.",
+        "Image identification using prompt-driven vision analysis."
+      ],
+      "challengesSolved": "Optimized base64 image encoding size before passing payloads to Gemini API, achieving rapid response times even on slow 3G cellular connections.",
+      "architecture": "Full-stack image handler pipelines. Uploads from React interface are sent as base64 to Node.js backend proxy, which invokes Gemini 3.5's multimodal vision engine, streaming responses securely back to front-end."
+    },
+    {
+      "id": "portfolio-assistant",
+      "title": "AI-Powered Portfolio Assistant",
+      "status": "Completed",
+      "techStack": ["MERN Stack", "Gemini API"],
+      "description": "An interactive, context-aware chatbot trained on Priyank's exact custom background, resume, and skills to answer developer recruitment queries efficiently.",
+      "features": [
+        "Injected local portfolio system context and resume data schema JSON.",
+        "Typing indicators, sugggested questions, and recruiter chat memory.",
+        "Subtle floating widget and fullscreen mode with modern chat bubbles."
+      ],
+      "challengesSolved": "Implemented an anti-hallucination system prompt that strictly bound answers to structured background JSON, suppressing general knowledge responses.",
+      "architecture": "Express endpoint accepts thread messages, fetches system context, passes historical conversations to Gemini 3.5 chat session, and feeds responses back in Markdown format."
+    },
+    {
+      "id": "blog-platform",
+      "title": "Full-Stack Blog Platform",
+      "status": "Completed",
+      "techStack": ["MongoDB", "Express.js", "React", "Node.js"],
+      "description": "A complete content management system (CMS) with secure user authentication, dynamic routing, and efficient database integration.",
+      "features": [
+        "Full CRUD operations via secure RESTful APIs.",
+        "Secure user authentication and route guards.",
+        "Robust MongoDB data relations for posts and authors."
+      ],
+      "challengesSolved": "Designed optimized database indexing for search queries and configured CORS middleware to securely isolation API endpoints.",
+      "architecture": "Strict Express MVC pattern. Controllers manage post models with schemas, route handlers apply verifyToken middleware for authentication, and the React frontend presents rich post interfaces."
+    },
+    {
+      "id": "mixtape",
+      "title": "MixTape Music Streaming App",
+      "status": "Completed",
+      "techStack": ["React", "Vite", "Express.js", "REST APIs"],
+      "description": "A high-performance music streaming application integrating third-party audio APIs for seamless data processing and playback.",
+      "features": [
+        "Sleek and responsive custom player interface.",
+        "Dynamic search and queue management.",
+        "Seamless audio streaming Integration."
+      ],
+      "challengesSolved": "Resolved complex audio state synchronization issues between list component items and the global player layout by using React Context.",
+      "architecture": "Vite-packaged single page application querying rapid Express server proxies, which cache remote music audio stream chunk links to prevent playback delays."
+    },
+    {
+      "id": "price-tracker",
+      "title": "Gold & Silver Live Price Tracker",
+      "status": "Completed",
+      "techStack": ["Python", "Django", "REST APIs", "Tailwind CSS"],
+      "description": "A real-time precious metals price tracking application utilizing external APIs and high-performance charts.",
+      "features": [
+        "Real-time gold and silver pricing feeds.",
+        "Responsive, minimal chart visualizations.",
+        "Automatic price threshold alerts."
+      ],
+      "challengesSolved": "Connected background cron tasks to refresh cache intervals, ensuring users saw instantaneous load states with cached prices.",
+      "architecture": "Django views pull metal prices from financial API providers, index them in cache memory, and render clean layouts showing price history."
+    },
+    {
+      "id": "expense-tracker",
+      "title": "Expense Tracker",
+      "status": "Completed",
+      "techStack": ["Python", "Django", "Bootstrap"],
+      "description": "A responsive financial management tool that enables users to efficiently monitor, track, and categorize personal finances, improving budgeting accuracy.",
+      "features": [
+        "Easy expense and income tracking.",
+        "Categorized visualization dashboards.",
+        "Budget goals and alerts."
+      ],
+      "challengesSolved": "Simplified database queries via Django ORM and aggregate annotation, resulting in an 80% decrease in computation overhead for monthly summaries.",
+      "architecture": "Standard Python web server leveraging SQLITE relational tables, rendering components and charts mapped using Bootstrap tables and dashboards."
+    }
+  ],
+  "education": [
+    {
+      "degree": "Diploma in Computer Engineering",
+      "institution": "Government Polytechnic Jamnagar",
+      "period": "2025"
+    }
+  ],
+  "certifications": [
+    "Full Stack Web Development with MERN & GenAI (90 Hours)",
+    "Generative AI Mastermind",
+    "Claude 101"
+  ]
+}
