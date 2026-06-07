@@ -1,178 +1,294 @@
-# priyank.ai — Premium AI-Powered MERN Developer Portfolio
+# 🤖 Priyank AI Portfolio
 
-An elite, high-performance, single-repository full-stack MERN portfolio website designed for **Priyank Chavda**, specializing in Full Stack Development, e-commerce deployments, and Generative AI Integrations.
+An AI-powered full-stack developer portfolio built to provide recruiters, clients, and hiring managers with an interactive way to learn about my experience, projects, and technical expertise.
 
-> **"Don't want to read my resume? Chat with my AI assistant."**
-
-Designed with a premium dark SaaS aesthetic (inspired by OpenAI, Linear, and Vercel), this application features a production-ready **Recruiter Copilot** chatbot with prompt injection, historical conversational memory, and robust fallback pipelines.
+Instead of reading a traditional resume, visitors can simply chat with an AI assistant trained on my portfolio and project history.
 
 ---
 
-## 🛠️ Unified Full-Stack Architecture
+## ✨ Key Highlight
 
-This project is built as a single, merged Express + Vite full-stack node module for easy distribution.
-- **Frontend Engine**: React 19, Vite 6, Tailwind CSS (with custom Space Grotesk display variables), and Framer Motion.
-- **Backend Routing**: Node.js & Express API servers.
-- **Database Storage**: MongoDB (Mongoose schemas) with atomic failover hooks.
+> "Don't want to read my resume? Chat with my AI assistant."
 
-```
-portfolio-ai/
-├── src/
-│   ├── client/
-│   │   ├── components/      <- AIChatBot element and visual assets
-│   │   ├── pages/           <- Home, About, Projects, Experience, Contact
-│   │   ├── App.tsx          <- UI core and tab router state
-│   │   └── main.tsx         <- React DOM entry point
-│   │
-│   ├── server/
-│   │   ├── config/          <- Mongoose connectors and fallback system
-│   │   ├── controllers/     <- AI response handshakes & Contacts logger
-│   │   ├── data/            <- Structured portfolioContext Knowledge Base
-│   │   ├── prompts/         <- System prompts with anti-hallucination blocks
-│   │   ├── routes/          <- Router endpoints mappings
-│   │   └── app.ts           <- Express server setup
-│   │
-│   └── shared/
-│
-├── .env.example
-├── server.ts                <- Main Full stack launcher
-├── tsconfig.json
-├── package.json
-└── README.md
-```
+The AI assistant can answer questions about:
+
+* Technical Skills
+* Work Experience
+* Projects
+* Education
+* Achievements
+* Technologies Used
+* Development Process
 
 ---
 
-## 🔒 Smart Database Connector & Failover Engine
+## 🚀 Features
 
-To guarantee zero server crashes in varying sandbox environments:
-- **With MongoDB configured**: Form submissions are stored directly in your live cluster collections.
-- **Without MongoDB configured**: Fallback routines gracefully serialize inquiries locally in `/src/server/data/submissions.json`, meaning the portfolio is **100% operational** instantly without complex pre-configurations.
+### 🤖 AI Recruiter Assistant
 
----
+* Powered by Google Gemini AI
+* Context-aware responses
+* Project-specific explanations
+* Portfolio knowledge base integration
+* Conversation history support
 
-## 📋 API Documentation
+### 💼 Portfolio Showcase
 
-### 1. Recruiter Chat Assistant
-- **Endpoint**: `POST /api/ai/chat`
-- **Payload**:
-```json
-{
-  "message": "Summarize Priyank in 30 seconds",
-  "history": [
-    { "role": "user", "text": "Hi" },
-    { "role": "model", "text": "Hello, ask me anything!" }
-  ]
-}
-```
-- **Response**:
-```json
-{
-  "reply": "### Who is Priyank Chavda? \n..."
-}
-```
+* Home Page
+* About Section
+* Experience Timeline
+* Project Gallery
+* Contact Page
 
-### 2. AI Tech Lead Project Explanation
-- **Endpoint**: `POST /api/ai/explain-project`
-- **Payload**:
-```json
-{
-  "projectId": "gym-ai"
-}
-```
-- **Response**:
-```json
-{
-  "title": "Gym AI Personal Trainer",
-  "explanation": "### Architectural Review \n..."
-}
-```
+### 📬 Contact Automation
 
-### 3. Contact Form (Email Delivery)
-- **Endpoint**: `POST /api/contact`
-- **Payload**:
-```json
-{
-  "name": "Alex Mercer",
-  "email": "alex@mercer-recruiting.com",
-  "subject": "Senior Full Stack Dev position",
-  "message": "We have an open role and loved your AI portfolio widget."
-}
-```
-- **Response**:
-```json
-{
-  "success": true,
-  "message": "Message sent successfully",
-  "submission": { ... }
-}
-```
+* Email delivery using Nodemailer
+* Contact form validation
+* Automated inquiry handling
+
+### 🔒 Security Features
+
+* API rate limiting
+* Request validation
+* Error handling middleware
+* Secure environment variable management
+
+### 📈 SEO Optimization
+
+* robots.txt
+* sitemap.xml
+* Metadata configuration
+* Search engine friendly architecture
+
+### ☁️ Production Deployment
+
+* Vercel frontend deployment
+* Render backend deployment
+* Environment-based configuration
+* Scalable API architecture
 
 ---
 
-## ⚡ Deployment (Vercel + Render)
+## 🛠 Tech Stack
 
-This project uses a **split architecture**:
+### Frontend
 
-| Layer | Host | Domain |
-|-------|------|--------|
-| Frontend (Vite + React) | Vercel | `https://priyankchavda.info` |
-| Backend (Express API) | Render | `https://api.priyankchavda.info` |
+* React 19
+* Vite
+* Tailwind CSS
+* React Router
+* Framer Motion
+* Lenis Smooth Scroll
 
-### Local development
+### Backend
 
-Run **two terminals** from the project root:
+* Node.js
+* Express.js
+
+### AI & Automation
+
+* Google Gemini AI
+* Prompt Engineering
+* Context-Aware Responses
+
+### Database
+
+* MongoDB
+* Mongoose
+
+### Communication
+
+* Nodemailer
+
+### Security
+
+* Helmet
+* Express Rate Limit
+* Validator
+
+### Deployment
+
+* Vercel
+* Render
+
+---
+
+## 📂 Project Structure
 
 ```bash
-# Terminal 1 — API (port 8080)
-cp .env.example .env
-# Set GEMINI_API_KEY, EMAIL_USER, EMAIL_PASS in .env
-npm run dev:server
+src/
+│
+├── client/
+│   ├── pages/
+│   │   ├── Home
+│   │   ├── About
+│   │   ├── Experience
+│   │   ├── Projects
+│   │   └── Contact
+│   │
+│   ├── components/
+│   │   ├── AIChatBot
+│   │   ├── Navbar
+│   │   ├── PageTransition
+│   │   └── SmoothScroll
+│
+├── server/
+│   ├── controllers/
+│   ├── routes/
+│   ├── middleware/
+│   ├── services/
+│   ├── prompts/
+│   └── data/
+│
+└── data/
+    └── portfolioContext.json
+```
 
-# Terminal 2 — Frontend (port 5173)
-# Create .env with: VITE_API_URL=http://localhost:8080
+---
+
+## 🤖 AI Capabilities
+
+The AI assistant can:
+
+### Answer Recruiter Questions
+
+Examples:
+
+```text
+Tell me about Priyank.
+```
+
+```text
+What technologies does Priyank work with?
+```
+
+```text
+Explain the AI Plant Analysis Tool project.
+```
+
+```text
+Which project best demonstrates full-stack development?
+```
+
+### Project Knowledge Base
+
+The chatbot uses structured portfolio context to provide accurate answers and reduce hallucinations.
+
+---
+
+## 📡 API Endpoints
+
+### AI Chat
+
+```http
+POST /api/ai/chat
+```
+
+### Project Explanation
+
+```http
+POST /api/ai/explain-project
+```
+
+### Contact Form
+
+```http
+POST /api/contact
+```
+
+---
+
+## ⚙️ Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/Priyank910/priyank-ai-portfolio.git
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Configure Environment Variables
+
+```env
+GEMINI_API_KEY=your_api_key
+
+EMAIL_USER=your_email
+
+EMAIL_PASS=your_app_password
+
+MONGODB_URI=your_database_connection
+```
+
+### Run Frontend
+
+```bash
 npm run dev:client
 ```
 
-### Frontend environment (Vercel)
+### Run Backend
 
-| Variable | Value |
-|----------|--------|
-| `VITE_API_URL` | `https://api.priyankchavda.info` |
+```bash
+npm run dev:server
+```
 
-### Backend environment (Render)
+---
 
-| Variable | Value |
-|----------|--------|
-| `NODE_ENV` | `production` |
-| `GEMINI_API_KEY` | Your Gemini API key |
-| `EMAIL_USER` | Gmail address |
-| `EMAIL_PASS` | Gmail app password |
-| `PORT` | Set automatically by Render |
+## 🎯 Learning Outcomes
 
-Optional: `CORS_ORIGINS` (comma-separated) if you add preview domains.
+* Full-Stack Development
+* Generative AI Integration
+* Prompt Engineering
+* Context-Aware AI Systems
+* API Development
+* Secure Backend Architecture
+* Email Automation
+* MongoDB Integration
+* Production Deployment
 
-### Vercel settings
+---
 
-- **Framework Preset**: Vite
-- **Build Command**: `npm run build`
-- **Output Directory**: `dist`
-- **Install Command**: `npm install`
-- Add `vercel.json` (included) for SPA routing
+## 🚀 Future Improvements
 
-### Render settings
+* Voice AI Assistant
+* Resume Upload Analysis
+* Interview Simulation
+* Recruiter Analytics Dashboard
+* Multi-Language Support
+* AI Career Advisor
+* Personalized Project Recommendations
+* OpenAI & Anthropic Model Support
 
-- **Root Directory**: `/` (repo root)
-- **Build Command**: `npm install && npm run build:server`
-- **Start Command**: `npm start`
-- **Health Check Path**: `/api/health`
+---
 
-### DNS (manual)
+## 📸 Screenshots
 
-**Frontend** (`priyankchavda.info` → Vercel):
+Add screenshots for:
 
-- `A` / `CNAME` as instructed by Vercel for apex and `www`
+### Home Page
 
-**API** (`api.priyankchavda.info` → Render):
+### AI Chat Assistant
 
-- `CNAME` `api` → your Render service hostname (e.g. `your-service.onrender.com`)
+### Projects Page
+
+### Experience Page
+
+### Contact Page
+
+---
+
+## 👨‍💻 Author
+
+Priyank Chavda
+
+GitHub: https://github.com/Priyank910
+
+---
+
+## 📄 License
+
+MIT License
