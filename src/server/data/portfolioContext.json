@@ -40,19 +40,40 @@
   ],
   "projects": [
     {
-      "id": "gym-ai",
-      "title": "Gym AI Personal Trainer",
-      "status": "In Progress",
-      "techStack": ["MERN Stack", "GenAI", "Google OAuth"],
-      "description": "An intelligent fitness tracking application featuring a contextual AI coach that analyzes user progress to dynamically suggest personalized workout routines.",
+      "id": "personal-chrome-extension",
+      "title": "Personal Chrome Extension",
+      "status": "Completed",
+      "techStack": ["JavaScript", "Chrome Extension API", "HTML/CSS"],
+      "description": "A custom Chrome Extension that transforms the default new tab page into a personalized productivity dashboard with live clock, smart greetings, quick-access links, notes, and entertaining content.",
       "features": [
-        "Dynamic workout routine suggestion guided by contextual AI.",
-        "Secure user authentication with Google OAuth.",
-        "Manual exercise logging & bulk routine uploads via CSV parsing.",
-        "Interactive dashboard displaying exercise progress trends."
+        "Real-time live clock with hours, minutes, and seconds display.",
+        "Smart time-based personalized greetings.",
+        "Quick-access favorite links and bookmark shortcuts.",
+        "Notes section for quick reminders and daily note-taking.",
+        "Dynamic joke section for entertaining browsing experience.",
+        "Smooth animations and interactive visual effects."
       ],
-      "challengesSolved": "Solved CSV parsing edge cases for user-defined workout schemas by adding automatic format detection, and lowered token consumption in the AI model using summarized workout histories.",
-      "architecture": "MVC Architecture. Express.js REST API layer queries MongoDB for exercises, feeds summaries to Gemini model via Server-Side API, and returns beautiful insights to React chart interfaces using Tailwind."
+      "challengesSolved": "Built a clean, performant new tab replacement using vanilla JavaScript and Chrome Extension APIs, ensuring instant load times and smooth animations without any framework overhead.",
+      "architecture": "Chrome Extension with Manifest configuration. HTML5 new tab page with modular JavaScript handling DOM manipulation, event handling, and Chrome Storage APIs for persistent user data.",
+      "repoUrl": "https://github.com/Priyank910/Personal-Chrome-Extension"
+    },
+    {
+      "id": "signal-ai",
+      "title": "Signal AI",
+      "status": "Completed",
+      "techStack": ["Electron", "React", "TypeScript", "Gemini API"],
+      "description": "An AI-powered desktop application that transforms real-time news and trending topics into high-quality social media content using Generative AI workflows.",
+      "features": [
+        "AI-powered social media content generation from trending news.",
+        "Real-time news intelligence with RSS feed integration.",
+        "Interactive content creation workspace with preview and regeneration.",
+        "Native desktop application built with Electron.",
+        "Dark/Light theme support with modern Tailwind CSS styling.",
+        "Multi-model AI support with Google Gemini and OpenAI."
+      ],
+      "challengesSolved": "Designed an AI processing pipeline that analyzes incoming news, extracts key insights, and generates contextually relevant social media content with refinement workflows for iterative improvement.",
+      "architecture": "Electron desktop app with React + TypeScript frontend (Vite bundled). Main process handles API routing (ai-router, news-feed, visual-brain modules). Renderer process manages UI components (CreateSection, NewsSection, OutputCanvas). Integrates Gemini AI and OpenAI APIs with RSS Parser for data sources.",
+      "repoUrl": "https://github.com/Priyank910/Signal-AI"
     },
     {
       "id": "plant-analysis-ai",
