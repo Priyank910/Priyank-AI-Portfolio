@@ -9,7 +9,9 @@
     "linkedin": "https://www.linkedin.com/in/priyank-chavda-gj",
     "website": "https://priyankchavda.info",
     "shortBio": "I build full-stack applications, practical AI tools, and small language-model experiments. Based in Gujarat, India.",
-    "currentFocus": "Building Isoliq Inno 1, a 3M-parameter language-model research project trained from scratch, and useful software for real people."
+    "currentFocus": "Building Isoliq Inno 1, a 3M-parameter language-model research project trained from scratch, and useful software for real people.",
+    "youtube": "https://www.youtube.com/@priyankchavdaofficial",
+    "publicWork": "I make YouTube videos about AI, Isoliq Inno 1, and what I learn while building."
   },
   "skills": {
     "languages": [
@@ -30,14 +32,8 @@
       "Bootstrap",
       "Vite"
     ],
-    "databases": [
-      "MongoDB"
-    ],
-    "tools": [
-      "Git",
-      "GitHub",
-      "Shopify"
-    ],
+    "databases": ["MongoDB"],
+    "tools": ["Git", "GitHub", "Shopify"],
     "ai": [
       "Prompt Engineering",
       "Gemini API",
@@ -77,12 +73,7 @@
       "title": "Isoliq Inno 1",
       "status": "Ongoing research",
       "category": "AI & Research",
-      "techStack": [
-        "Python",
-        "PyTorch",
-        "nanoGPT",
-        "Google Colab"
-      ],
+      "techStack": ["Python", "PyTorch", "nanoGPT", "Google Colab"],
       "description": "A 3M-parameter GPT-style language model trained from scratch. An open-source exploration of the whole pipeline, from tokenizer to honest evaluation.",
       "features": [
         "Custom 1,280-token byte-level BPE tokenizer",
@@ -103,27 +94,29 @@
       "title": "Daily Ledger",
       "status": "Used by my father",
       "category": "Real-world tools",
-      "techStack": [],
+      "techStack": ["React", "TypeScript", "Capacitor", "Vite", "jsPDF"],
       "description": "My father kept his daily ledger in a book. The calculations and upkeep took time, so I built him an app. He now uses it and says it helps him a lot.",
       "features": [
-        "Built around a real daily bookkeeping problem",
-        "Used by my first user: my father",
-        "A simpler way to maintain his daily ledger"
+        "Daily income and expense entries with an automatic running balance",
+        "Searchable transaction history and monthly totals",
+        "Monthly or custom-date reports, with PDF and CSV export",
+        "Local-first Android app: no account or internet needed"
       ],
       "challengesSolved": "Starting with a person’s actual routine, rather than a feature list. The goal was to make daily bookkeeping easier for my father.",
-      "architecture": "Project links and implementation details will be added when available.",
+      "architecture": "React and TypeScript frontend built with Vite, packaged for Android with Capacitor. Entries are stored locally on the device. jsPDF and native file sharing support PDF/CSV exports. Android 7.0 or newer.",
       "role": "Product design & development",
-      "outcome": "My father uses the app for his daily ledger and reports that it helps him a lot."
+      "outcome": "My father uses the app for his daily ledger and reports that it helps him a lot.",
+      "repoUrl": "https://github.com/Priyank910/Daily-Ledger",
+      "releaseUrl": "https://github.com/Priyank910/Daily-Ledger/releases/tag/v1.0.0",
+      "downloadUrl": "https://github.com/Priyank910/Daily-Ledger/releases/latest/download/Daily-Ledger-Android.apk",
+      "releaseVersion": "v1.0.0",
+      "image": "/images/ledger-overview.webp"
     },
     {
       "id": "personal-chrome-extension",
       "title": "Personal Chrome Extension",
       "status": "Completed",
-      "techStack": [
-        "JavaScript",
-        "Chrome Extension API",
-        "HTML/CSS"
-      ],
+      "techStack": ["JavaScript", "Chrome Extension API", "HTML/CSS"],
       "description": "A custom Chrome Extension that transforms the default new tab page into a personalized productivity dashboard with live clock, smart greetings, quick-access links, notes, and entertaining content.",
       "features": [
         "Real-time live clock with hours, minutes, and seconds display.",
@@ -143,12 +136,7 @@
       "id": "signal-ai",
       "title": "Signal AI",
       "status": "Completed",
-      "techStack": [
-        "Electron",
-        "React",
-        "TypeScript",
-        "Gemini API"
-      ],
+      "techStack": ["Electron", "React", "TypeScript", "Gemini API"],
       "description": "An AI-powered desktop application that transforms real-time news and trending topics into high-quality social media content using Generative AI workflows.",
       "features": [
         "RSS-powered news collection",
@@ -189,11 +177,7 @@
       "id": "portfolio-assistant",
       "title": "AI-Powered Portfolio Assistant",
       "status": "Completed",
-      "techStack": [
-        "React",
-        "Express.js",
-        "Gemini API"
-      ],
+      "techStack": ["React", "Express.js", "Gemini API"],
       "description": "A portfolio assistant that answers questions using structured project, skill and experience context.",
       "features": [
         "Injected local portfolio system context and resume data schema JSON.",
@@ -210,13 +194,7 @@
       "id": "blog-platform",
       "title": "Full-Stack Blog Platform",
       "status": "Completed",
-      "techStack": [
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-        "EJS",
-        "Passport.js"
-      ],
+      "techStack": ["Node.js", "Express.js", "MongoDB", "EJS", "Passport.js"],
       "description": "A complete content management system (CMS) with secure user authentication, dynamic routing, and efficient database integration.",
       "features": [
         "Session-based authentication and protected routes",
@@ -233,12 +211,7 @@
       "id": "mixtape",
       "title": "MixTape Music Streaming App",
       "status": "Completed",
-      "techStack": [
-        "React",
-        "Vite",
-        "Express.js",
-        "REST APIs"
-      ],
+      "techStack": ["React", "Vite", "Express.js", "REST APIs"],
       "description": "A high-performance music streaming application integrating third-party audio APIs for seamless data processing and playback.",
       "features": [
         "Artist discovery and YouTube-powered music search",
@@ -257,12 +230,7 @@
       "id": "price-tracker",
       "title": "Gold & Silver Live Price Tracker",
       "status": "Completed",
-      "techStack": [
-        "Python",
-        "Django",
-        "REST APIs",
-        "Tailwind CSS"
-      ],
+      "techStack": ["Python", "Django", "REST APIs", "Tailwind CSS"],
       "description": "A real-time precious metals price tracking application utilizing external APIs and high-performance charts.",
       "features": [
         "Gold and silver price views",
@@ -279,11 +247,7 @@
       "id": "expense-tracker",
       "title": "Expense Tracker",
       "status": "Completed",
-      "techStack": [
-        "Python",
-        "Django",
-        "Bootstrap"
-      ],
+      "techStack": ["Python", "Django", "Bootstrap"],
       "description": "A responsive financial management tool that enables users to efficiently monitor, track, and categorize personal finances, improving budgeting accuracy.",
       "features": [
         "Easy expense and income tracking.",
@@ -301,12 +265,7 @@
       "title": "Gym AI Personal Trainer",
       "status": "Portfolio project",
       "category": "AI & Research",
-      "techStack": [
-        "React",
-        "Express.js",
-        "Gemini API",
-        "MongoDB"
-      ],
+      "techStack": ["React", "Express.js", "Gemini API", "MongoDB"],
       "description": "An intelligent workout builder and progress tracker with an AI fitness coach that suggests personalized daily exercises.",
       "features": [
         "Workout planning",
@@ -329,5 +288,14 @@
     "Full Stack Web Development with MERN & GenAI (90 Hours)",
     "Generative AI Mastermind",
     "Claude 101"
+  ],
+  "films": [
+    {
+      "heading": "Inside Isoliq Inno 1.",
+      "description": "A closer look at my own language-model project, from the idea to the work behind it. Follow along as I learn by building.",
+      "youtubeId": "LCntJE2pan4",
+      "url": "https://youtu.be/LCntJE2pan4",
+      "source": "Linked from the Isoliq project website."
+    }
   ]
 }

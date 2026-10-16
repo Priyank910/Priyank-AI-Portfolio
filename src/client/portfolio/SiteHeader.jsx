@@ -22,6 +22,7 @@ export default function SiteHeader() {
         <nav aria-label="Main navigation" className="desktop-nav">
           <Link to="/#work">Work</Link>
           <Link to="/#about">About</Link>
+          <Link to="/#videos">Videos</Link>
           <Link to="/#contact">Contact</Link>
         </nav>
         <Action to="/contact" className="header-contact">
@@ -48,10 +49,13 @@ export default function SiteHeader() {
               Work<sup>01</sup>
             </Link>
             <Link to="/#about">
-              About<sup>03</sup>
+              About<sup>04</sup>
+            </Link>
+            <Link to="/#videos">
+              Videos<sup>03</sup>
             </Link>
             <Link to="/#contact">
-              Contact<sup>04</sup>
+              Contact<sup>05</sup>
             </Link>
             <Link to="/projects">All projects</Link>
           </nav>

@@ -142,8 +142,24 @@ export function ProjectPage() {
                 helps him a lot. That direct feedback is why this project
                 matters to me.
               </p>
+              <h3>The engineering</h3>
+              <p>{project.architecture}</p>
+              <ul>
+                {project.features.map((feature) => (
+                  <li key={feature}>{feature}</li>
+                ))}
+              </ul>
+              <div className="detail-actions">
+                <Action href={project.repoUrl} external>
+                  View source code
+                </Action>
+                <Action href={project.releaseUrl} external>
+                  Release notes
+                </Action>
+              </div>
               <p className="case-note">
-                App links and technical details will be added here soon.
+                Records stay on the device. PDF and CSV exports provide backups;
+                clearing app data or uninstalling removes local records.
               </p>
             </div>
           </div>

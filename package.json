@@ -33,6 +33,7 @@
     "react": "^19.0.1",
     "react-dom": "^19.0.1",
     "react-router-dom": "^7.15.1",
+    "three": "^0.186.1",
     "validator": "^13.15.35",
     "vite": "^6.2.3"
   },

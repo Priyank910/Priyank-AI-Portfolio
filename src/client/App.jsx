@@ -24,6 +24,8 @@ import {
 } from "./portfolio/Pages";
 import { Dialog } from "./portfolio/Primitives";
 import ContactForm from "./portfolio/ContactForm";
+import FilmSection from "./portfolio/FilmSection";
+import { motion, useScroll } from "motion/react";
 import { projects } from "./portfolio/content";
 const Assistant = lazy(() => import("./portfolio/Assistant"));
 
@@ -87,6 +89,7 @@ function Home({ onMessage, onAssistant }) {
       <Hero />
       <SelectedWork />
       <LedgerStory />
+      <FilmSection />
       <AboutSection />
       <ContactSection onMessage={onMessage} onAssistant={onAssistant} />
     </>
@@ -130,6 +133,17 @@ function SiteFooter() {
   );
 }
 
+function ReadingProgress() {
+  const { scrollYProgress } = useScroll();
+  return (
+    <motion.div
+      className="reading-progress"
+      style={{ scaleX: scrollYProgress }}
+      aria-hidden="true"
+    />
+  );
+}
+
 function AppShell() {
   const [modal, setModal] = useState(null);
   const location = useLocation();
@@ -137,6 +151,7 @@ function AppShell() {
   return (
     <MotionConfig reducedMotion="user">
       <NavigationEffects />
+      <ReadingProgress />
       <SiteHeader />
       <main id="main" tabIndex={-1}>
         <Routes>

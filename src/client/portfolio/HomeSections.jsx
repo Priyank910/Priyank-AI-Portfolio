@@ -1,17 +1,14 @@
-import { useRef } from "react";
 import { Link } from "react-router-dom";
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-  useReducedMotion,
-} from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { ArrowDown } from "lucide-react";
 import { Action, Arrow, Reveal, SectionRule } from "./Primitives";
+import InteractiveSculpture from "./InteractiveSculpture";
+import ProjectShowcase from "./ProjectShowcase";
+import LedgerTour from "./LedgerTour";
 import {
   personal,
   projects,
-  isoliq,
+  ledger,
   shortDescriptions,
   selectedIds,
   skills,
@@ -21,36 +18,9 @@ import {
 
 export function Hero() {
   const reduced = useReducedMotion();
-  const x = useMotionValue(0),
-    y = useMotionValue(0);
-  const rotateX = useSpring(y, { stiffness: 60, damping: 22 });
-  const rotateY = useSpring(x, { stiffness: 60, damping: 22 });
-  const art = useRef(null);
-  function move(e) {
-    if (reduced || e.pointerType !== "mouse") return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    x.set(((e.clientX - rect.left) / rect.width - 0.5) * 12);
-    y.set(-((e.clientY - rect.top) / rect.height - 0.5) * 8);
-  }
   return (
-    <section
-      className="hero shell"
-      onPointerMove={move}
-      onPointerLeave={() => {
-        x.set(0);
-        y.set(0);
-      }}
-    >
-      <div className="hero-art" ref={art} aria-hidden="true">
-        <motion.img
-          src="/images/hero-art.webp"
-          alt=""
-          width="1024"
-          height="1024"
-          fetchPriority="high"
-          style={{ rotateX, rotateY }}
-        />
-      </div>
+    <section className="hero shell">
+      <InteractiveSculpture />
       <div className="hero-content">
         <motion.h1
           initial={reduced ? false : { opacity: 0, y: 18 }}
@@ -103,62 +73,11 @@ export function SelectedWork() {
           into the world.
         </p>
       </Reveal>
-      <div className="featured-project">
-        <Reveal className="featured-media">
-          <Link to="/projects/isoliq-inno">
-            <div className="browser-frame">
-              <div className="browser-top">
-                <span />
-                <span />
-                <span />
-                <span className="browser-address">isoliq.com</span>
-                <Arrow size={13} />
-              </div>
-              <img
-                src="/images/isoliq-screen.webp"
-                width="1440"
-                height="1000"
-                loading="lazy"
-                alt="Isoliq website showing the open-source Inno 1 model and its Small models. Real understanding. introduction"
-              />
-            </div>
-            <div className="media-caption">
-              <span>ISOLIQ / INNO 1</span>
-              <span>
-                From scratch, in the open
-                <Arrow size={17} />
-              </span>
-            </div>
-          </Link>
-        </Reveal>
-        <Reveal className="featured-copy" delay={0.08}>
-          <span className="mono">01 / AI RESEARCH</span>
-          <h3>Isoliq Inno 1</h3>
-          <p className="project-deck">
-            A small language model.
-            <br />A big learning curve.
-          </p>
-          <p>
-            Training a 3M-parameter GPT-style model from scratch, from tokenizer
-            to honest evaluation.
-          </p>
-          <p className="tech-line">
-            Python<span>/</span>PyTorch<span>/</span>nanoGPT
-          </p>
-          <div className="project-actions">
-            <Action to="/projects/isoliq-inno" variant="primary">
-              Explore project
-            </Action>
-            <Action href={isoliq.liveUrl} external>
-              Visit Isoliq
-            </Action>
-          </div>
-        </Reveal>
-      </div>
+      <ProjectShowcase />
       <div className="selected-rows">
         {selectedIds.map((id, index) => {
           const project = projects.find((p) => p.id === id);
-          return <ProjectRow key={id} project={project} index={index + 3} />;
+          return <ProjectRow key={id} project={project} index={index + 4} />;
         })}
       </div>
       <div className="archive-link">
@@ -214,24 +133,18 @@ export function LedgerStory() {
               ledger with less effort.
             </p>
           </div>
-          <Action to="/projects/daily-ledger" variant="dark">
-            Read the story
-          </Action>
+          <div className="ledger-actions">
+            <Action to="/projects/daily-ledger" variant="dark">
+              Read the story
+            </Action>
+            <Action href={ledger.downloadUrl} external>
+              Download Android
+            </Action>
+          </div>
+          <p className="ledger-release">Android 7.0+ · v1.0.0 · APK, 5 MB</p>
         </Reveal>
-        <Reveal className="ledger-photo" delay={0.08}>
-          <img
-            src="/images/ledger-art.webp"
-            srcSet="/images/ledger-art-480.webp 480w, /images/ledger-art-800.webp 800w, /images/ledger-art.webp 1122w"
-            sizes="(max-width: 599px) calc(100vw - 40px), (max-width: 899px) calc((100vw - 88px) / 2), calc((100vw - 188px) / 2)"
-            width="1024"
-            height="1280"
-            loading="lazy"
-            alt="An orange accounting notebook, receipts and a pen, illustrating the paper bookkeeping that inspired Daily Ledger"
-          />
-          <p>
-            <span />A real problem. A personal project.
-            <span />
-          </p>
+        <Reveal className="ledger-tour-wrap" delay={0.08}>
+          <LedgerTour />
         </Reveal>
       </div>
     </section>
@@ -245,7 +158,7 @@ export function AboutSection({ expanded = false }) {
       id="about"
       aria-labelledby="about-title"
     >
-      <SectionRule number="03" />
+      <SectionRule number="04" />
       <div className="about-grid">
         <Reveal className="about-copy">
           <h2 id="about-title">
@@ -332,7 +245,7 @@ export function ContactSection({ onMessage, onAssistant }) {
         />
       </div>
       <div className="shell contact-content">
-        <SectionRule number="04" />
+        <SectionRule number="05" />
         <Reveal>
           <h2 id="contact-title">
             Good things
@@ -351,6 +264,9 @@ export function ContactSection({ onMessage, onAssistant }) {
             </Action>
             <Action href={personal.linkedin} external>
               LinkedIn
+            </Action>
+            <Action href={personal.youtube} external>
+              YouTube
             </Action>
             <Action href="/resume.html" external>
               View résumé
