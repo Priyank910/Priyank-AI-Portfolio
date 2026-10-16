@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://priyankchavda.info/sitemap.xml

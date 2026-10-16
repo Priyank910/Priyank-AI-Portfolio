@@ -7,22 +7,25 @@
     "dev": "npm run dev:server",
     "dev:client": "vite",
     "dev:server": "node server.js",
-    "build": "vite build",
+    "build": "node scripts/generate-resume.js && vite build",
     "build:server": "node scripts/copy-build-data.js && esbuild server.js --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
     "start": "node dist/server.cjs",
     "clean": "node -e \"const fs=require('fs');['dist'].forEach(p=>fs.rmSync(p,{recursive:true,force:true}))\"",
-    "lint": "echo 'No linter configured'"
+    "lint": "eslint src/client src/main.jsx scripts vite.config.js",
+    "preview": "vite preview",
+    "test:e2e": "npm run build && playwright test",
+    "format:check": "prettier --check src/client src/index.css index.html scripts/generate-resume.js tests playwright.config.js eslint.config.js"
   },
   "dependencies": {
+    "@fontsource-variable/manrope": "^5.3.0",
+    "@fontsource/instrument-serif": "^5.3.0",
     "@google/generative-ai": "^0.24.1",
-    "@tailwindcss/vite": "^4.1.14",
     "@vitejs/plugin-react": "^5.0.4",
     "cors": "^2.8.5",
     "dotenv": "^17.4.2",
     "express": "^4.21.2",
     "express-rate-limit": "^8.5.2",
     "helmet": "^8.2.0",
-    "lenis": "^1.3.23",
     "lucide-react": "^0.546.0",
     "mongoose": "^9.6.2",
     "motion": "^12.23.24",
@@ -34,13 +37,20 @@
     "vite": "^6.2.3"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.64.1",
     "@types/express": "^4.17.21",
     "@types/node": "^22.14.0",
-    "autoprefixer": "^10.4.21",
     "esbuild": "^0.25.0",
-    "tailwindcss": "^4.1.14",
-    "tsx": "^4.21.0",
-    "typescript": "~5.8.2",
+    "eslint": "^10.12.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.7",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.10",
     "vite": "^6.2.3"
+  },
+  "engines": {
+    "node": ">=22.13.0"
   }
 }

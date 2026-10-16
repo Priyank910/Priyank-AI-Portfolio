@@ -46,3 +46,8 @@ coverage/
 
 # optional
 .idea/
+# Runtime contact backups
+src/server/data/submissions.json
+# Browser test artifacts
+playwright-report/
+test-results/

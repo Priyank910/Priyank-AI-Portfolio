@@ -2,11 +2,9 @@ import fs from "fs";
 import path from "path";
 
 function resolvePortfolioContextPath() {
-  const candidates = [
-    path.join(process.cwd(), "dist", "data", "portfolioContext.json"),
-    path.join(process.cwd(), "src", "data", "portfolioContext.json"),
-    path.join(process.cwd(), "src", "server", "data", "portfolioContext.json"),
-  ];
+  const source = path.join(process.cwd(), "src", "data", "portfolioContext.json");
+  const built = path.join(process.cwd(), "dist", "data", "portfolioContext.json");
+  const candidates = process.env.NODE_ENV === "production" ? [built, source] : [source, built];
 
   for (const candidate of candidates) {
     if (fs.existsSync(candidate)) {

@@ -3,13 +3,12 @@ import path from "path";
 
 const sources = [
   path.join(process.cwd(), "src", "data", "portfolioContext.json"),
-  path.join(process.cwd(), "src", "server", "data", "portfolioContext.json"),
 ];
 
 const source = sources.find((p) => fs.existsSync(p));
 
 if (!source) {
-  console.error("Missing portfolioContext.json in src/data or src/server/data");
+  console.error("Missing portfolioContext.json in src/data");
   process.exit(1);
 }
 

@@ -1,22 +1,55 @@
 {
   "personal": {
     "name": "Priyank Chavda",
-    "title": "Full Stack MERN Developer & Generative AI Engineer",
+    "title": "Full-stack Developer & AI Builder",
     "location": "Gujarat, India",
     "email": "priyankchavda910@gmail.com",
     "phone": "+91 9512034134",
     "github": "https://github.com/Priyank910",
     "linkedin": "https://www.linkedin.com/in/priyank-chavda-gj",
     "website": "https://priyankchavda.info",
-    "shortBio": "Highly innovative MERN Stack Developer specializing in AI-powered applications, Generative AI integrations, and scalable full-stack systems.",
-    "currentFocus": "Building AI-first MERN applications using Large Language Models (LLMs)."
+    "shortBio": "I build full-stack applications, practical AI tools, and small language-model experiments. Based in Gujarat, India.",
+    "currentFocus": "Building Isoliq Inno 1, a 3M-parameter language-model research project trained from scratch, and useful software for real people."
   },
   "skills": {
-    "languages": ["JavaScript", "Python", "C", "C++", "PHP", "HTML", "CSS"],
-    "frameworks": ["React", "Node.js", "Express.js", "Django", "Bootstrap", "Vite"],
-    "databases": ["MongoDB"],
-    "tools": ["Git", "GitHub", "Shopify"],
-    "ai": ["Prompt Engineering", "Gemini API", "OpenAI API", "OpenRouter API", "GenAI Integrations"]
+    "languages": [
+      "JavaScript",
+      "Python",
+      "C",
+      "C++",
+      "PHP",
+      "HTML",
+      "CSS",
+      "TypeScript"
+    ],
+    "frameworks": [
+      "React",
+      "Node.js",
+      "Express.js",
+      "Django",
+      "Bootstrap",
+      "Vite"
+    ],
+    "databases": [
+      "MongoDB"
+    ],
+    "tools": [
+      "Git",
+      "GitHub",
+      "Shopify"
+    ],
+    "ai": [
+      "Prompt Engineering",
+      "Gemini API",
+      "OpenAI API",
+      "OpenRouter API",
+      "GenAI Integrations",
+      "PyTorch",
+      "nanoGPT",
+      "Language-model pretraining",
+      "Supervised fine-tuning",
+      "Dataset evaluation"
+    ]
   },
   "experience": [
     {
@@ -40,10 +73,57 @@
   ],
   "projects": [
     {
+      "id": "isoliq-inno",
+      "title": "Isoliq Inno 1",
+      "status": "Ongoing research",
+      "category": "AI & Research",
+      "techStack": [
+        "Python",
+        "PyTorch",
+        "nanoGPT",
+        "Google Colab"
+      ],
+      "description": "A 3M-parameter GPT-style language model trained from scratch. An open-source exploration of the whole pipeline, from tokenizer to honest evaluation.",
+      "features": [
+        "Custom 1,280-token byte-level BPE tokenizer",
+        "Reproducible pretraining and assistant-only fine-tuning",
+        "Corpus fingerprints, dataset audits and saved checkpoints",
+        "Multi-prompt, multi-seed evaluation"
+      ],
+      "challengesSolved": "The pipeline ran successfully, but evaluation revealed unbalanced fine-tuning data. The important lesson: clean data is not automatically balanced data.",
+      "architecture": "Six transformer layers, six attention heads, a 192-wide embedding and a 512-token context. Built on Andrej Karpathy’s nanoGPT with PyTorch and a documented Google Colab workflow.",
+      "repoUrl": "https://github.com/Priyank910/Isoliq-Inno-1",
+      "liveUrl": "https://isoliq.com/",
+      "role": "Independent model research & development",
+      "outcome": "Published a reproducible workspace for a 3,000,768-parameter model, including training configurations, tokenizer, audits and checkpoints.",
+      "image": "/images/isoliq-screen.webp"
+    },
+    {
+      "id": "daily-ledger",
+      "title": "Daily Ledger",
+      "status": "Used by my father",
+      "category": "Real-world tools",
+      "techStack": [],
+      "description": "My father kept his daily ledger in a book. The calculations and upkeep took time, so I built him an app. He now uses it and says it helps him a lot.",
+      "features": [
+        "Built around a real daily bookkeeping problem",
+        "Used by my first user: my father",
+        "A simpler way to maintain his daily ledger"
+      ],
+      "challengesSolved": "Starting with a person’s actual routine, rather than a feature list. The goal was to make daily bookkeeping easier for my father.",
+      "architecture": "Project links and implementation details will be added when available.",
+      "role": "Product design & development",
+      "outcome": "My father uses the app for his daily ledger and reports that it helps him a lot."
+    },
+    {
       "id": "personal-chrome-extension",
       "title": "Personal Chrome Extension",
       "status": "Completed",
-      "techStack": ["JavaScript", "Chrome Extension API", "HTML/CSS"],
+      "techStack": [
+        "JavaScript",
+        "Chrome Extension API",
+        "HTML/CSS"
+      ],
       "description": "A custom Chrome Extension that transforms the default new tab page into a personalized productivity dashboard with live clock, smart greetings, quick-access links, notes, and entertaining content.",
       "features": [
         "Real-time live clock with hours, minutes, and seconds display.",
@@ -55,109 +135,187 @@
       ],
       "challengesSolved": "Built a clean, performant new tab replacement using vanilla JavaScript and Chrome Extension APIs, ensuring instant load times and smooth animations without any framework overhead.",
       "architecture": "Chrome Extension with Manifest configuration. HTML5 new tab page with modular JavaScript handling DOM manipulation, event handling, and Chrome Storage APIs for persistent user data.",
-      "repoUrl": "https://github.com/Priyank910/Personal-Chrome-Extension"
+      "repoUrl": "https://github.com/Priyank910/Personal-Chrome-Extension",
+      "category": "Web & Apps",
+      "role": "Independent design & development"
     },
     {
       "id": "signal-ai",
       "title": "Signal AI",
       "status": "Completed",
-      "techStack": ["Electron", "React", "TypeScript", "Gemini API"],
+      "techStack": [
+        "Electron",
+        "React",
+        "TypeScript",
+        "Gemini API"
+      ],
       "description": "An AI-powered desktop application that transforms real-time news and trending topics into high-quality social media content using Generative AI workflows.",
       "features": [
-        "AI-powered social media content generation from trending news.",
-        "Real-time news intelligence with RSS feed integration.",
-        "Interactive content creation workspace with preview and regeneration.",
-        "Native desktop application built with Electron.",
-        "Dark/Light theme support with modern Tailwind CSS styling.",
-        "Multi-model AI support with Google Gemini and OpenAI."
+        "RSS-powered news collection",
+        "AI content generation and refinement",
+        "Electron desktop application",
+        "Preview workspace and regeneration"
       ],
       "challengesSolved": "Designed an AI processing pipeline that analyzes incoming news, extracts key insights, and generates contextually relevant social media content with refinement workflows for iterative improvement.",
       "architecture": "Electron desktop app with React + TypeScript frontend (Vite bundled). Main process handles API routing (ai-router, news-feed, visual-brain modules). Renderer process manages UI components (CreateSection, NewsSection, OutputCanvas). Integrates Gemini AI and OpenAI APIs with RSS Parser for data sources.",
-      "repoUrl": "https://github.com/Priyank910/Signal-AI"
+      "repoUrl": "https://github.com/Priyank910/Signal-AI",
+      "category": "AI & Research",
+      "role": "Independent design & development"
     },
     {
       "id": "plant-analysis-ai",
       "title": "AI Plant Analysis Tool",
       "status": "Completed",
-      "techStack": ["React", "Node.js", "Express.js", "Gemini API"],
+      "techStack": [
+        "JavaScript",
+        "Express.js",
+        "Gemini API",
+        "Multer",
+        "PDFKit"
+      ],
       "description": "A full-stack AI application that processes and analyzes plant health, diseases, and growth data, leveraging an external API to generate actionable gardening insights.",
       "features": [
-        "Responsive MERN interface for seamless file/image uploads.",
-        "Dynamic gardening suggestions and problem diagnosis responses.",
-        "Image identification using prompt-driven vision analysis."
+        "Plant image uploads",
+        "AI-generated species and plant health insights",
+        "Downloadable PDF reports"
       ],
-      "challengesSolved": "Optimized base64 image encoding size before passing payloads to Gemini API, achieving rapid response times even on slow 3G cellular connections.",
-      "architecture": "Full-stack image handler pipelines. Uploads from React interface are sent as base64 to Node.js backend proxy, which invokes Gemini 3.5's multimodal vision engine, streaming responses securely back to front-end."
+      "challengesSolved": "Connecting image uploads, multimodal analysis and PDF generation in a single workflow.",
+      "architecture": "HTML, CSS and JavaScript frontend; Express backend handles images with Multer, calls Gemini, and creates reports with PDFKit.",
+      "category": "AI & Research",
+      "role": "Independent design & development",
+      "repoUrl": "https://github.com/Priyank910/AI-Plant-Analysis-Tool"
     },
     {
       "id": "portfolio-assistant",
       "title": "AI-Powered Portfolio Assistant",
       "status": "Completed",
-      "techStack": ["MERN Stack", "Gemini API"],
-      "description": "An interactive, context-aware chatbot trained on Priyank's exact custom background, resume, and skills to answer developer recruitment queries efficiently.",
+      "techStack": [
+        "React",
+        "Express.js",
+        "Gemini API"
+      ],
+      "description": "A portfolio assistant that answers questions using structured project, skill and experience context.",
       "features": [
         "Injected local portfolio system context and resume data schema JSON.",
         "Typing indicators, sugggested questions, and recruiter chat memory.",
         "Subtle floating widget and fullscreen mode with modern chat bubbles."
       ],
-      "challengesSolved": "Implemented an anti-hallucination system prompt that strictly bound answers to structured background JSON, suppressing general knowledge responses.",
-      "architecture": "Express endpoint accepts thread messages, fetches system context, passes historical conversations to Gemini 3.5 chat session, and feeds responses back in Markdown format."
+      "challengesSolved": "Keeping answers grounded in a shared portfolio data source, with explicit instructions to acknowledge missing information.",
+      "architecture": "React interface, Express API and Gemini 2.5 Flash with structured portfolio context supplied in the prompt.",
+      "category": "AI & Research",
+      "role": "Independent design & development",
+      "repoUrl": "https://github.com/Priyank910/Priyank-AI-Portfolio"
     },
     {
       "id": "blog-platform",
       "title": "Full-Stack Blog Platform",
       "status": "Completed",
-      "techStack": ["MongoDB", "Express.js", "React", "Node.js"],
+      "techStack": [
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "EJS",
+        "Passport.js"
+      ],
       "description": "A complete content management system (CMS) with secure user authentication, dynamic routing, and efficient database integration.",
       "features": [
-        "Full CRUD operations via secure RESTful APIs.",
-        "Secure user authentication and route guards.",
-        "Robust MongoDB data relations for posts and authors."
+        "Session-based authentication and protected routes",
+        "Posts, profiles and comments",
+        "Image uploads with Cloudinary"
       ],
-      "challengesSolved": "Designed optimized database indexing for search queries and configured CORS middleware to securely isolation API endpoints.",
-      "architecture": "Strict Express MVC pattern. Controllers manage post models with schemas, route handlers apply verifyToken middleware for authentication, and the React frontend presents rich post interfaces."
+      "challengesSolved": "Connecting authenticated CRUD, ownership checks, uploads and comments across a complete publishing workflow.",
+      "architecture": "Express MVC application with EJS views, MongoDB models, Passport sessions and Cloudinary-backed file uploads.",
+      "category": "Web & Apps",
+      "role": "Independent design & development",
+      "repoUrl": "https://github.com/Priyank910/Fullstack-Blog"
     },
     {
       "id": "mixtape",
       "title": "MixTape Music Streaming App",
       "status": "Completed",
-      "techStack": ["React", "Vite", "Express.js", "REST APIs"],
+      "techStack": [
+        "React",
+        "Vite",
+        "Express.js",
+        "REST APIs"
+      ],
       "description": "A high-performance music streaming application integrating third-party audio APIs for seamless data processing and playback.",
       "features": [
-        "Sleek and responsive custom player interface.",
-        "Dynamic search and queue management.",
-        "Seamless audio streaming Integration."
+        "Artist discovery and YouTube-powered music search",
+        "Persistent player and fullscreen playback",
+        "Liked songs management"
       ],
       "challengesSolved": "Resolved complex audio state synchronization issues between list component items and the global player layout by using React Context.",
-      "architecture": "Vite-packaged single page application querying rapid Express server proxies, which cache remote music audio stream chunk links to prevent playback delays."
+      "architecture": "React and Vite frontend with React Player. A separate Express API uses yt-search to return YouTube search results.",
+      "category": "Web & Apps",
+      "role": "Independent design & development",
+      "repoUrl": "https://github.com/Priyank910/Mixtape-Frontend",
+      "liveUrl": "https://mixtape-neon.vercel.app",
+      "image": "/images/mixtape-screen.webp"
     },
     {
       "id": "price-tracker",
       "title": "Gold & Silver Live Price Tracker",
       "status": "Completed",
-      "techStack": ["Python", "Django", "REST APIs", "Tailwind CSS"],
+      "techStack": [
+        "Python",
+        "Django",
+        "REST APIs",
+        "Tailwind CSS"
+      ],
       "description": "A real-time precious metals price tracking application utilizing external APIs and high-performance charts.",
       "features": [
-        "Real-time gold and silver pricing feeds.",
-        "Responsive, minimal chart visualizations.",
-        "Automatic price threshold alerts."
+        "Gold and silver price views",
+        "Interactive dashboard",
+        "Authentication pages"
       ],
-      "challengesSolved": "Connected background cron tasks to refresh cache intervals, ensuring users saw instantaneous load states with cached prices.",
-      "architecture": "Django views pull metal prices from financial API providers, index them in cache memory, and render clean layouts showing price history."
+      "challengesSolved": "Presenting precious-metal price data through a focused Django dashboard.",
+      "architecture": "Django application with commodity-specific views, authentication pages, and a responsive financial dashboard.",
+      "category": "Web & Apps",
+      "role": "Independent design & development",
+      "repoUrl": "https://github.com/Priyank910/Gold-Silver-Live-Price-Tracker"
     },
     {
       "id": "expense-tracker",
       "title": "Expense Tracker",
       "status": "Completed",
-      "techStack": ["Python", "Django", "Bootstrap"],
+      "techStack": [
+        "Python",
+        "Django",
+        "Bootstrap"
+      ],
       "description": "A responsive financial management tool that enables users to efficiently monitor, track, and categorize personal finances, improving budgeting accuracy.",
       "features": [
         "Easy expense and income tracking.",
         "Categorized visualization dashboards.",
         "Budget goals and alerts."
       ],
-      "challengesSolved": "Simplified database queries via Django ORM and aggregate annotation, resulting in an 80% decrease in computation overhead for monthly summaries.",
-      "architecture": "Standard Python web server leveraging SQLITE relational tables, rendering components and charts mapped using Bootstrap tables and dashboards."
+      "challengesSolved": "Organizing income and expense records into a clear, responsive budgeting interface.",
+      "architecture": "Standard Python web server leveraging SQLITE relational tables, rendering components and charts mapped using Bootstrap tables and dashboards.",
+      "category": "Web & Apps",
+      "role": "Independent design & development",
+      "repoUrl": "https://github.com/Priyank910/Expense-Tracker"
+    },
+    {
+      "id": "gym-ai-personal-trainer",
+      "title": "Gym AI Personal Trainer",
+      "status": "Portfolio project",
+      "category": "AI & Research",
+      "techStack": [
+        "React",
+        "Express.js",
+        "Gemini API",
+        "MongoDB"
+      ],
+      "description": "An intelligent workout builder and progress tracker with an AI fitness coach that suggests personalized daily exercises.",
+      "features": [
+        "Workout planning",
+        "Progress tracking",
+        "AI-assisted daily exercise suggestions"
+      ],
+      "challengesSolved": "Bringing workout planning, progress tracking, and an AI fitness coach into one application.",
+      "architecture": "React frontend and Express backend with Gemini integration and MongoDB.",
+      "role": "Independent design & development"
     }
   ],
   "education": [

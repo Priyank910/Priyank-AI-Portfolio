@@ -1,294 +1,58 @@
-# 🤖 Priyank AI Portfolio
+# Priyank Chavda — portfolio
 
-An AI-powered full-stack developer portfolio built to provide recruiters, clients, and hiring managers with an interactive way to learn about my experience, projects, and technical expertise.
+A responsive React + Vite portfolio with an editorial visual system, individual project stories, a printable résumé, an optional Gemini portfolio assistant, and an Express contact API.
 
-Instead of reading a traditional resume, visitors can simply chat with an AI assistant trained on my portfolio and project history.
+## Run locally
 
----
-
-## ✨ Key Highlight
-
-> "Don't want to read my resume? Chat with my AI assistant."
-
-The AI assistant can answer questions about:
-
-* Technical Skills
-* Work Experience
-* Projects
-* Education
-* Achievements
-* Technologies Used
-* Development Process
-
----
-
-## 🚀 Features
-
-### 🤖 AI Recruiter Assistant
-
-* Powered by Google Gemini AI
-* Context-aware responses
-* Project-specific explanations
-* Portfolio knowledge base integration
-* Conversation history support
-
-### 💼 Portfolio Showcase
-
-* Home Page
-* About Section
-* Experience Timeline
-* Project Gallery
-* Contact Page
-
-### 📬 Contact Automation
-
-* Email delivery using Nodemailer
-* Contact form validation
-* Automated inquiry handling
-
-### 🔒 Security Features
-
-* API rate limiting
-* Request validation
-* Error handling middleware
-* Secure environment variable management
-
-### 📈 SEO Optimization
-
-* robots.txt
-* sitemap.xml
-* Metadata configuration
-* Search engine friendly architecture
-
-### ☁️ Production Deployment
-
-* Vercel frontend deployment
-* Render backend deployment
-* Environment-based configuration
-* Scalable API architecture
-
----
-
-## 🛠 Tech Stack
-
-### Frontend
-
-* React 19
-* Vite
-* Tailwind CSS
-* React Router
-* Framer Motion
-* Lenis Smooth Scroll
-
-### Backend
-
-* Node.js
-* Express.js
-
-### AI & Automation
-
-* Google Gemini AI
-* Prompt Engineering
-* Context-Aware Responses
-
-### Database
-
-* MongoDB
-* Mongoose
-
-### Communication
-
-* Nodemailer
-
-### Security
-
-* Helmet
-* Express Rate Limit
-* Validator
-
-### Deployment
-
-* Vercel
-* Render
-
----
-
-## 📂 Project Structure
+Use Node.js 22.13 or later.
 
 ```bash
-src/
-│
-├── client/
-│   ├── pages/
-│   │   ├── Home
-│   │   ├── About
-│   │   ├── Experience
-│   │   ├── Projects
-│   │   └── Contact
-│   │
-│   ├── components/
-│   │   ├── AIChatBot
-│   │   ├── Navbar
-│   │   ├── PageTransition
-│   │   └── SmoothScroll
-│
-├── server/
-│   ├── controllers/
-│   ├── routes/
-│   ├── middleware/
-│   ├── services/
-│   ├── prompts/
-│   └── data/
-│
-└── data/
-    └── portfolioContext.json
-```
-
----
-
-## 🤖 AI Capabilities
-
-The AI assistant can:
-
-### Answer Recruiter Questions
-
-Examples:
-
-```text
-Tell me about Priyank.
-```
-
-```text
-What technologies does Priyank work with?
-```
-
-```text
-Explain the AI Plant Analysis Tool project.
-```
-
-```text
-Which project best demonstrates full-stack development?
-```
-
-### Project Knowledge Base
-
-The chatbot uses structured portfolio context to provide accurate answers and reduce hallucinations.
-
----
-
-## 📡 API Endpoints
-
-### AI Chat
-
-```http
-POST /api/ai/chat
-```
-
-### Project Explanation
-
-```http
-POST /api/ai/explain-project
-```
-
-### Contact Form
-
-```http
-POST /api/contact
-```
-
----
-
-## ⚙️ Installation
-
-### Clone Repository
-
-```bash
-git clone https://github.com/Priyank910/priyank-ai-portfolio.git
-```
-
-### Install Dependencies
-
-```bash
-npm install
-```
-
-### Configure Environment Variables
-
-```env
-GEMINI_API_KEY=your_api_key
-
-EMAIL_USER=your_email
-
-EMAIL_PASS=your_app_password
-
-MONGODB_URI=your_database_connection
-```
-
-### Run Frontend
-
-```bash
+npm ci
 npm run dev:client
 ```
 
-### Run Backend
+The frontend runs on `http://localhost:5173`. In a second terminal, run the API:
 
 ```bash
 npm run dev:server
 ```
 
----
+Vite proxies `/api` to `http://127.0.0.1:8080`. Without email or Gemini credentials, those features show recoverable errors and preserve the direct email and résumé paths.
 
-## 🎯 Learning Outcomes
+To enable external services, copy `.env.example` to `.env` and supply the existing service credentials. Keep `VITE_API_URL` empty for local development with the Vite proxy. Set it to the API origin for a separately hosted production backend. The portfolio assistant uses Gemini, not Isoliq Inno.
 
-* Full-Stack Development
-* Generative AI Integration
-* Prompt Engineering
-* Context-Aware AI Systems
-* API Development
-* Secure Backend Architecture
-* Email Automation
-* MongoDB Integration
-* Production Deployment
+## Build and check
 
----
+```bash
+npm run lint
+npm run format:check
+npm run build
+npm run build:server
+npm run preview
+```
 
-## 🚀 Future Improvements
+`npm run build` regenerates the printable résumé and sitemap from the shared content, then builds the frontend into `dist`. Run `npm run build:server` after the frontend build if deploying both outputs together; Vite clears `dist` when building. `npm start` starts the bundled Express API.
 
-* Voice AI Assistant
-* Resume Upload Analysis
-* Interview Simulation
-* Recruiter Analytics Dashboard
-* Multi-Language Support
-* AI Career Advisor
-* Personalized Project Recommendations
-* OpenAI & Anthropic Model Support
+```bash
+npx playwright install chromium
+npm run test:e2e
+```
 
----
+The browser suite tests desktop and mobile navigation, project evidence, filters, résumé access, dialog keyboard behavior, contact/assistant success and failure contracts, overflow, and automated WCAG A/AA checks. Contact/AI success tests use explicit network fixtures and never send email or call a model. For an environment with system Chromium, set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium`.
 
-## 📸 Screenshots
+## Content and assets
 
-Add screenshots for:
+- `src/data/portfolioContext.json` is the shared source for project content, API context, sitemap, and résumé.
+- `src/client/portfolio/` contains the layout, pages, dialogs and forms.
+- `src/index.css` contains the responsive design tokens and styles.
+- `public/images/` contains generated editorial artwork and captured real project screenshots, optimized as WebP.
+- `scripts/generate-resume.js` generates `public/resume.html` and the sitemap.
+- `public/priyank-chavda-resume.pdf` is the current one-page export. After changing résumé content, open `/resume.html`, use Print / Save as PDF, and replace the PDF.
 
-### Home Page
+Isoliq Inno 1 is presented as a small educational research project, with repository evidence and limitations. Its code builds on Andrej Karpathy’s nanoGPT. Daily Ledger's name and first-user story come from Priyank; add its links and technical details to the shared data when available. Existing projects are retained, with technology descriptions corrected against their available repositories.
 
-### AI Chat Assistant
+## Hosting
 
-### Projects Page
+The frontend is ready for static hosting with SPA route fallback. The existing `vercel.json` routes frontend paths to `index.html`; real static assets are served normally. Configure the production `VITE_API_URL` before the frontend build. Deploy the updated backend as well so the assistant receives the new project context. No production deployment or remote environment changes are performed by local builds.
 
-### Experience Page
-
-### Contact Page
-
----
-
-## 👨‍💻 Author
-
-Priyank Chavda
-
-GitHub: https://github.com/Priyank910
-
----
-
-## 📄 License
-
-MIT License
+Fonts are self-hosted through Fontsource; no third-party font requests are needed. Artwork is decorative; project media uses real interface captures. Motion respects reduced-motion preferences. Native dialogs provide focus containment and keyboard dismissal.

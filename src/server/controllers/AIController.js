@@ -49,7 +49,7 @@ Features: ${project.features.join(", ")}
 Challenges Solved: ${project.challengesSolved}
 Architecture: ${project.architecture}
 
-Provide a professional architectural review as a Tech Lead. Explain how MERN and GenAI work together in this project, why the design choices are strong, and the engineering value of the challenges solved. Use plain text only (no markdown).`;
+Explain the actual problem, technologies, design choices, and lessons documented for this project. Do not assume the project uses MERN, GenAI, or a database unless listed. Do not invent impact metrics or claim the architecture was independently verified. Use plain text only (no markdown).`;
 
     const explanation = await askGemini([], explanationPrompt);
     res.json({ success: true, title: project.title, explanation });

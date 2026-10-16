@@ -1,14 +1,6 @@
-export const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
 
 export function apiUrl(path) {
-  const base = (API_URL || "").replace(/\/$/, "");
-  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-
-  if (!base) {
-    console.warn(
-      "VITE_API_URL is not set. API requests may fail. Add it to your .env file.",
-    );
-  }
-
-  return `${base}${normalizedPath}`;
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return `${API_URL}${normalized}`;
 }
