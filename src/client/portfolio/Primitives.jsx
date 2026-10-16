@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { motion, useReducedMotion } from "motion/react";
-import { ArrowUpRight, X } from "lucide-react";
+import { ArrowUpRight, ArrowRight, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export function Arrow(props) {
@@ -17,13 +17,18 @@ export function Action({
   variant = "text",
   className = "",
   external = false,
+  arrow = "up-right",
   ...props
 }) {
   const classes = `action action-${variant} ${className}`;
   const content = (
     <>
       {children}
-      <Arrow />
+      {arrow === "right" ? (
+        <ArrowRight size={20} strokeWidth={1.5} aria-hidden="true" />
+      ) : (
+        <Arrow />
+      )}
     </>
   );
   if (to)

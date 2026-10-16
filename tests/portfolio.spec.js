@@ -14,7 +14,7 @@ test("a recruiter can follow the flagship project to evidence and the next story
 }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "A little code.",
+    "Priyank",
   );
   await page
     .getByRole("link", { name: "Explore my work", exact: true })

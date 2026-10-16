@@ -1,6 +1,6 @@
 # Priyank Chavda — portfolio
 
-An interactive React + Vite portfolio with a live Three.js ribbon sculpture, selectable project showcase, Daily Ledger interface tour, a click-to-load YouTube video, individual project stories, a printable résumé, an optional Gemini portfolio assistant, and an Express contact API.
+An interactive React + Vite portfolio with Priyank’s authentic GitHub portrait, selectable project showcase, Daily Ledger interface tour, a click-to-load YouTube video, individual project stories, a printable résumé, an optional Gemini portfolio assistant, and an Express contact API.
 
 ## Run locally
 
@@ -45,7 +45,7 @@ The browser suite tests desktop and mobile navigation, project evidence, filters
 - `src/data/portfolioContext.json` is the shared source for project content, API context, sitemap, and résumé.
 - `src/client/portfolio/` contains the layout, pages, dialogs and forms.
 - `src/index.css` contains the responsive design tokens and styles.
-- `public/images/` contains generated editorial artwork and captured real project screenshots, optimized as WebP.
+- `public/images/` contains the authentic GitHub portrait and captured real project screenshots, optimized as WebP. The avatar source is recorded in the shared content.
 - `scripts/generate-resume.js` generates `public/resume.html` and the sitemap.
 - `public/priyank-chavda-resume.pdf` is the current one-page export. After changing résumé content, open `/resume.html`, use Print / Save as PDF, and replace the PDF.
 
@@ -55,10 +55,10 @@ Isoliq Inno 1 is presented as a small educational research project, with reposit
 
 The frontend is ready for static hosting with SPA route fallback. The existing `vercel.json` routes frontend paths to `index.html`; real static assets are served normally. Configure the production `VITE_API_URL` before the frontend build. Deploy the updated backend as well so the assistant receives the new project context. No production deployment or remote environment changes are performed by local builds.
 
-Fonts are self-hosted through Fontsource; no third-party font requests are needed. Artwork is decorative; project media uses real interface captures. Motion respects reduced-motion preferences. Native dialogs provide focus containment and keyboard dismissal.
+Fonts are self-hosted through Fontsource; no third-party font requests are needed. The portrait preserves the original GitHub image; project media uses real interface captures. Motion respects reduced-motion preferences. Native dialogs provide focus containment and keyboard dismissal.
 
 ## Interaction and media
 
-The sculpture loads Three.js separately after the initial text/poster paint, only when visible. Automatic animation requires hardware graphics; software graphics and data-saving devices retain the poster with an explicit, paused 3D opt-in. It uses two material groups, caps rendering resolution, and stops rendering when offscreen, hidden, or paused. Drag it, use the arrow keys, choose a shape, or reset its rotation. Reduced-motion visitors get a static poster and an explicit Enable 3D button; enabling it keeps automatic rotation paused. Devices without WebGL retain the poster.
+The hero uses the actual GitHub portrait, locally encoded as a 19 KB WebP. Pointer movement gently translates the photo on desktop, while reduced-motion visitors receive a still photo. The site has no graphics-engine dependency. The About section offers keyboard-accessible approach, experience and toolbox tabs.
 
 Project and interface selectors support arrow keys, Home, and End. The video iframe is created only after a visitor chooses to play; closing its native dialog unmounts the player, restores focus, and leaves the page position intact. A direct YouTube link is available if embedding is blocked.

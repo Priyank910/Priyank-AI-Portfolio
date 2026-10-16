@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Asterisk, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Action, Dialog } from "./Primitives";
 
 export default function SiteHeader() {
@@ -17,7 +17,6 @@ export default function SiteHeader() {
       <header className="site-header shell">
         <Link to="/" className="brand" aria-label="Priyank Chavda, home">
           Priyank Chavda
-          <Asterisk size={23} strokeWidth={2.5} aria-hidden="true" />
         </Link>
         <nav aria-label="Main navigation" className="desktop-nav">
           <Link to="/#work">Work</Link>
@@ -25,7 +24,12 @@ export default function SiteHeader() {
           <Link to="/#videos">Videos</Link>
           <Link to="/#contact">Contact</Link>
         </nav>
-        <Action to="/contact" className="header-contact">
+        <Action
+          to="/contact"
+          className="header-contact"
+          variant="primary"
+          arrow="right"
+        >
           Let’s talk
         </Action>
         <button

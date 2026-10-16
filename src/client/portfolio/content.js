@@ -5,11 +5,6 @@ export const films = context.films;
 export const projects = context.projects;
 export const isoliq = projects.find((p) => p.id === "isoliq-inno");
 export const ledger = projects.find((p) => p.id === "daily-ledger");
-export const selectedIds = [
-  "signal-ai",
-  "plant-analysis-ai",
-  "personal-chrome-extension",
-];
 export const shortDescriptions = {
   "gym-ai-personal-trainer":
     "Workout planning and progress tracking with an AI fitness coach.",

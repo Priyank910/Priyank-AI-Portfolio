@@ -11,7 +11,9 @@
     "shortBio": "I build full-stack applications, practical AI tools, and small language-model experiments. Based in Gujarat, India.",
     "currentFocus": "Building Isoliq Inno 1, a 3M-parameter language-model research project trained from scratch, and useful software for real people.",
     "youtube": "https://www.youtube.com/@priyankchavdaofficial",
-    "publicWork": "I make YouTube videos about AI, Isoliq Inno 1, and what I learn while building."
+    "publicWork": "I make YouTube videos about AI, Isoliq Inno 1, and what I learn while building.",
+    "portrait": "/images/priyank-chavda.webp",
+    "portraitSource": "https://avatars.githubusercontent.com/u/137393380?v=4"
   },
   "skills": {
     "languages": [

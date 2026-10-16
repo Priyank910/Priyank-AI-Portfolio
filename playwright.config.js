@@ -13,9 +13,9 @@ export default defineConfig({
     launchOptions: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH
       ? {
           executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH,
-          args: ["--no-sandbox", "--enable-unsafe-swiftshader"],
+          args: ["--no-sandbox"],
         }
-      : { args: ["--enable-unsafe-swiftshader"] },
+      : {},
   },
   projects: [
     { name: "desktop", use: { viewport: { width: 1440, height: 1000 } } },

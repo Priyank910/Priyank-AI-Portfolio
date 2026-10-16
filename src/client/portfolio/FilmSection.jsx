@@ -14,16 +14,15 @@ export default function FilmSection() {
       id="videos"
       aria-labelledby="film-title"
     >
-      <SectionRule number="03">THE PROCESS, OUT LOUD</SectionRule>
+      <SectionRule number="03">LEARNING IN PUBLIC</SectionRule>
       <Reveal className="film-heading">
         <h2 id="film-title">
-          Building it.
-          <br />
-          <em>Sharing it.</em>
+          What I learn,
+          <br />I share.
         </h2>
         <p>
-          I make videos about AI and the model I’m building. The experiments,
-          the decisions, and what I learn along the way.
+          AI experiments, my own language model, and the process behind the
+          projects.
         </p>
       </Reveal>
       <div className="film-grid">
@@ -53,10 +52,11 @@ export default function FilmSection() {
           </span>
         </motion.button>
         <Reveal className="film-copy">
-          <span className="mono">FROM MY YOUTUBE CHANNEL</span>
           <h3>{film.heading}</h3>
           <p>{film.description}</p>
-          <Action onClick={() => setOpen(true)}>Watch the video</Action>
+          <Action onClick={() => setOpen(true)} variant="primary" arrow="right">
+            Watch the video
+          </Action>
           <Action href={personal.youtube} external>
             Explore my channel
           </Action>

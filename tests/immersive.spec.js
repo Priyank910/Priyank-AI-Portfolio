@@ -1,9 +1,6 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
-// Continuous GPU canvas capture is expensive in a software-rendered CI browser.
-test.use({ trace: "off" });
-
 const apk =
   "https://github.com/Priyank910/Daily-Ledger/releases/latest/download/Daily-Ledger-Android.apk";
 
@@ -19,7 +16,7 @@ test("featured projects support keyboard selection and lead to the selected evid
   await expect(ledgerTab).toHaveAttribute("aria-selected", "true");
   const panel = page.getByRole("tabpanel", { name: /Daily Ledger/ });
   await expect(
-    panel.getByRole("heading", { name: "Daily Ledger" }),
+    panel.getByRole("heading", { name: /Less time calculating/ }),
   ).toBeVisible();
   await expect(
     panel.getByRole("link", { name: "Download Android" }),
@@ -29,11 +26,26 @@ test("featured projects support keyboard selection and lead to the selected evid
   await expect(
     page
       .getByRole("tabpanel", { name: /MixTape/ })
-      .getByRole("heading", { name: "MixTape" }),
+      .getByRole("heading", { name: /A place to find/ }),
   ).toBeVisible();
   await page.keyboard.press("Home");
   await expect(tabs.getByRole("tab", { name: /Isoliq Inno 1/ })).toBeFocused();
-  await page.keyboard.press("ArrowRight");
+  await page
+    .getByRole("button", { name: "Previous featured project", exact: true })
+    .click();
+  await expect(tabs.getByRole("tab", { name: /MixTape/ })).toHaveAttribute(
+    "aria-selected",
+    "true",
+  );
+  await page
+    .getByRole("button", { name: "Next featured project", exact: true })
+    .click();
+  await expect(
+    tabs.getByRole("tab", { name: /Isoliq Inno 1/ }),
+  ).toHaveAttribute("aria-selected", "true");
+  await page
+    .getByRole("button", { name: "Next featured project", exact: true })
+    .click();
   await panel
     .getByRole("link", { name: "Explore project", exact: true })
     .click();
@@ -110,109 +122,102 @@ test("video loads only on request, has a direct link, and restores focus when di
   await expect(play).toBeFocused();
 });
 
-test("reduced motion leaves the sculpture still and visitors can opt into a real keyboard-controlled mesh", async ({
+test("the authentic portrait leads to About without loading a graphics engine", async ({
   page,
 }) => {
-  // Software WebGL on CI needs longer for several full-size canvas captures.
-  test.setTimeout(60000);
+  const graphicsRequests = [];
+  page.on("request", (request) => {
+    if (/sculpture|three|hero-art|contact-art/.test(request.url()))
+      graphicsRequests.push(request.url());
+  });
   await page.goto("/");
-  await expect(page.locator(".sculpture canvas")).toHaveCount(0);
-  await page.getByRole("button", { name: "Enable 3D", exact: true }).click();
-  await expect(
-    page.getByRole("button", { name: "Animate sculpture", exact: true }),
-  ).toBeVisible({ timeout: 15000 });
-  const canvas = page.locator(".sculpture canvas");
-  const stage = page.getByRole("group", {
-    name: "Interactive 3D sculpture",
-    exact: true,
-  });
-  await stage.focus();
-  await page.waitForTimeout(200);
-  const before = await canvas.screenshot();
-  await page.keyboard.press("ArrowRight");
-  await page.waitForTimeout(700);
-  const rotated = await canvas.screenshot();
-  expect(before.equals(rotated)).toBe(false);
-  await page.getByRole("button", { name: "Orbit", exact: true }).click();
-  await page.waitForTimeout(300);
-  expect(rotated.equals(await canvas.screenshot())).toBe(false);
+  const portrait = page
+    .locator(".hero")
+    .getByRole("img", { name: "Priyank Chavda", exact: true });
+  await expect(portrait).toBeVisible();
+  await expect(portrait).toHaveAttribute("src", "/images/priyank-chavda.webp");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText(
+    "Priyank",
+  );
+  await expect(page.locator("canvas")).toHaveCount(0);
   await page
-    .getByRole("button", { name: "Animate sculpture", exact: true })
+    .getByRole("link", { name: "A little more about me", exact: true })
     .click();
+  await expect(page).toHaveURL(/#about$/);
   await expect(
-    page.getByRole("button", { name: "Pause sculpture", exact: true }),
+    page.getByRole("heading", { name: "A little about me.", exact: true }),
   ).toBeVisible();
-  await page
-    .getByRole("button", { name: "Pause sculpture", exact: true })
-    .click();
-  await expect(
-    page.getByRole("button", { name: "Animate sculpture", exact: true }),
-  ).toBeVisible();
+  expect(graphicsRequests).toEqual([]);
 });
 
-test("normal motion offers hardware-aware 3D and dragging turns the live mesh", async ({
+test("the About tabs expose real experience, approach, and skills with the keyboard", async ({
   page,
 }) => {
-  test.setTimeout(60000);
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.goto("/#videos");
-  await page.waitForTimeout(1000);
-  await expect(page.locator(".sculpture canvas")).toHaveCount(0);
-  await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
-  await page.waitForTimeout(1000);
-  const enable = page.getByRole("button", { name: "Enable 3D", exact: true });
-  if (await enable.isVisible()) {
-    await enable.click();
-    await expect(
-      page.getByRole("button", { name: "Animate sculpture", exact: true }),
-    ).toBeVisible({ timeout: 15000 });
-  } else {
-    await page
-      .getByRole("button", { name: "Pause sculpture", exact: true })
-      .click({ timeout: 15000 });
-  }
-  await page.waitForTimeout(700);
-  const canvas = page.locator(".sculpture canvas");
-  const stage = page.getByRole("group", {
-    name: "Interactive 3D sculpture",
+  await page.goto("/about");
+  const tabs = page.getByRole("tablist", {
+    name: "About Priyank",
     exact: true,
   });
-  const before = await canvas.screenshot();
-  const bounds = await stage.boundingBox();
-  await page.mouse.move(
-    bounds.x + bounds.width * 0.7,
-    bounds.y + bounds.height * 0.5,
-  );
-  await page.mouse.down();
-  await page.mouse.move(
-    bounds.x + bounds.width * 0.7 + 55,
-    bounds.y + bounds.height * 0.5 + 35,
-    { steps: 8 },
-  );
-  await page.mouse.up();
-  await page.waitForTimeout(700);
-  expect(before.equals(await canvas.screenshot())).toBe(false);
+  const experience = tabs.getByRole("tab", { name: "Experience", exact: true });
+  await expect(experience).toHaveAttribute("aria-selected", "true");
+  await expect(
+    page.getByRole("tabpanel", { name: "Experience", exact: true }),
+  ).toContainText("Payment Poster");
+  await experience.focus();
+  await page.keyboard.press("ArrowLeft");
+  await expect(
+    tabs.getByRole("tab", { name: "My approach", exact: true }),
+  ).toBeFocused();
+  await expect(
+    page.getByRole("tabpanel", { name: "My approach", exact: true }),
+  ).toContainText("Daily Ledger");
+  await page.keyboard.press("End");
+  await expect(
+    tabs.getByRole("tab", { name: "Toolbox", exact: true }),
+  ).toBeFocused();
+  const panel = page.getByRole("tabpanel", { name: "Toolbox", exact: true });
+  await expect(panel).toContainText("PyTorch");
+  await expect(panel).toContainText("Diploma in Computer Engineering");
+  await expect(panel).toContainText("Learning & certifications");
 });
 
-test("a device without WebGL retains the artwork and all portfolio navigation", async ({
+test("the portrait moves gently on pointer input and stays still with reduced motion", async ({
   page,
 }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.addInitScript(() => {
-    const original = HTMLCanvasElement.prototype.getContext;
-    HTMLCanvasElement.prototype.getContext = function (type, ...args) {
-      return /webgl/.test(type) ? null : original.call(this, type, ...args);
-    };
-  });
   await page.goto("/");
-  await page.getByRole("button", { name: "Enable 3D", exact: true }).click();
-  await expect(
-    page.getByText("Sculpture preview · 3D unavailable on this device"),
-  ).toBeVisible({ timeout: 15000 });
-  await expect(page.locator(".sculpture-poster")).toBeVisible();
-  await expect(page.locator(".sculpture canvas")).toHaveCount(0);
-  await page
-    .getByRole("link", { name: "Explore my work", exact: true })
-    .click();
-  await expect(page).toHaveURL(/#work$/);
+  const mount = page.locator(".hero .portrait-mount");
+  await mount.scrollIntoViewIfNeeded();
+  const bounds = await page.locator(".hero .portrait").boundingBox();
+  await page.mouse.move(
+    bounds.x + bounds.width * 0.85,
+    bounds.y + bounds.height * 0.3,
+  );
+  await expect
+    .poll(async () =>
+      mount.evaluate(
+        (element) => new DOMMatrix(getComputedStyle(element).transform).m41,
+      ),
+    )
+    .toBeGreaterThan(1);
+  await page.mouse.move(5, 5);
+  await expect
+    .poll(async () =>
+      mount.evaluate((element) =>
+        Math.abs(new DOMMatrix(getComputedStyle(element).transform).m41),
+      ),
+    )
+    .toBeLessThan(0.1);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.mouse.move(
+    bounds.x + bounds.width * 0.9,
+    bounds.y + bounds.height * 0.7,
+  );
+  await expect
+    .poll(async () =>
+      mount.evaluate((element) =>
+        Math.abs(new DOMMatrix(getComputedStyle(element).transform).m41),
+      ),
+    )
+    .toBeLessThan(0.1);
 });

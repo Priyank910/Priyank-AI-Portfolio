@@ -1,51 +1,62 @@
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "motion/react";
-import { ArrowDown } from "lucide-react";
+import { Mail } from "lucide-react";
 import { Action, Arrow, Reveal, SectionRule } from "./Primitives";
-import InteractiveSculpture from "./InteractiveSculpture";
+import Portrait from "./Portrait";
+import AboutDetails from "./AboutDetails";
 import ProjectShowcase from "./ProjectShowcase";
 import LedgerTour from "./LedgerTour";
-import {
-  personal,
-  projects,
-  ledger,
-  shortDescriptions,
-  selectedIds,
-  skills,
-  experience,
-  certifications,
-} from "./content";
+import { personal, projects, ledger, shortDescriptions } from "./content";
 
 export function Hero() {
   const reduced = useReducedMotion();
   return (
     <section className="hero shell">
-      <InteractiveSculpture />
-      <div className="hero-content">
-        <motion.h1
-          initial={reduced ? false : { opacity: 0, y: 18 }}
+      <div className="hero-main">
+        <motion.div
+          className="hero-heading"
+          initial={reduced ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span>A little code.</span>
-          <em>
-            A real
-            <br />
-            difference.
-          </em>
-        </motion.h1>
-        <p>
-          I’m Priyank, a full-stack developer exploring AI from the inside out.
-          I build things that make everyday life a little better.
-        </p>
-        <div className="hero-actions">
-          <Link to="/#work" className="action action-primary">
-            Explore my work
-            <ArrowDown size={20} strokeWidth={1.5} aria-hidden="true" />
-          </Link>
-          <Action href="/resume.html" external>
-            View résumé
-          </Action>
+          <h1>
+            <span>Priyank</span>{" "}
+            <span className="hero-surname">
+              Chavda.
+              <svg
+                viewBox="0 0 580 18"
+                aria-hidden="true"
+                preserveAspectRatio="none"
+              >
+                <motion.path
+                  d="M7 11 Q275 -1 573 9 M130 16 Q335 3 520 11"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="7"
+                  strokeLinecap="round"
+                  initial={reduced ? false : { pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 0.8, delay: 0.35 }}
+                />
+              </svg>
+            </span>
+          </h1>
+          <p className="hero-role">Developer & AI builder.</p>
+        </motion.div>
+        <Portrait />
+        <div className="hero-intro">
+          <p>
+            From training my own language model to making my dad’s bookkeeping
+            easier. I build things, then learn from what happens.
+          </p>
+          <div className="hero-actions">
+            <Action to="/#work" variant="primary" arrow="right">
+              Explore my work
+            </Action>
+            <Action href="/resume.html" external>
+              View résumé
+            </Action>
+          </div>
         </div>
       </div>
       <div className="hero-baseline">
@@ -64,25 +75,18 @@ export function SelectedWork() {
       aria-labelledby="work-title"
     >
       <Reveal className="section-heading">
-        <h2 id="work-title">
-          Selected <em>work</em>
-        </h2>
+        <h2 id="work-title">Selected work.</h2>
         <p>
-          A few things I’ve put
+          Different problems.
           <br />
-          into the world.
+          The same curiosity.
         </p>
       </Reveal>
       <ProjectShowcase />
-      <div className="selected-rows">
-        {selectedIds.map((id, index) => {
-          const project = projects.find((p) => p.id === id);
-          return <ProjectRow key={id} project={project} index={index + 4} />;
-        })}
-      </div>
       <div className="archive-link">
-        <span>Different ideas. The same curiosity.</span>
-        <Action to="/projects">Explore all {projects.length} projects</Action>
+        <Action to="/projects" arrow="right">
+          Explore all {projects.length} projects
+        </Action>
       </div>
     </section>
   );
@@ -117,24 +121,22 @@ export function LedgerStory() {
         <Reveal className="ledger-copy">
           <SectionRule number="02">BUILT FOR SOMEONE</SectionRule>
           <h2 id="ledger-title">
-            My first
+            My first user?
             <br />
-            user?
-            <br />
-            <em>My dad.</em>
+            <span>My dad.</span>
           </h2>
           <div className="ledger-story-text">
             <p>
-              He used to keep his daily ledger in a book. Every entry meant more
+              He kept his daily ledger in a book. Every entry meant more
               calculations, more time. So I built him an app.
             </p>
             <p>
-              Now, <strong>Daily Ledger</strong> helps him manage his daily
-              ledger with less effort.
+              Now <strong>Daily Ledger</strong> helps him keep track with less
+              effort.
             </p>
           </div>
           <div className="ledger-actions">
-            <Action to="/projects/daily-ledger" variant="dark">
+            <Action to="/projects/daily-ledger" variant="dark" arrow="right">
               Read the story
             </Action>
             <Action href={ledger.downloadUrl} external>
@@ -158,70 +160,23 @@ export function AboutSection({ expanded = false }) {
       id="about"
       aria-labelledby="about-title"
     >
-      <SectionRule number="04" />
+      <Reveal>
+        <h2 id="about-title">A little about me.</h2>
+      </Reveal>
       <div className="about-grid">
-        <Reveal className="about-copy">
-          <h2 id="about-title">
-            Curious by
-            <br />
-            <em>
-              default<span>.</span>
-            </em>
-          </h2>
+        <Reveal className="about-photo">
+          <Portrait compact />
+        </Reveal>
+        <Reveal className="about-bio" delay={0.06}>
           <p>
-            I’m Priyank Chavda, a developer from Gujarat, India. I work across
-            full-stack applications, practical AI integrations, and now,
-            language models trained from scratch.
+            I’m Priyank, a developer from Gujarat, India. I work across
+            full-stack applications, practical AI integrations, and language
+            models trained from scratch.
           </p>
-          <p>
-            I like the whole process: understanding a problem, making something,
-            and learning from what happens when someone uses it.
-          </p>
+          <AboutDetails expanded={expanded} />
           <Action href="/resume.html" external>
             View résumé
           </Action>
-        </Reveal>
-        <Reveal className="about-details" delay={0.06}>
-          <div className="experience-list">
-            {experience.map((item) => (
-              <article className="experience-item" key={item.title}>
-                <p className="experience-date">{item.date}</p>
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.company}</p>
-                  {expanded && (
-                    <p className="experience-description">{item.description}</p>
-                  )}
-                </div>
-              </article>
-            ))}
-          </div>
-          <div className="skills-grid">
-            {skills.map((skill) => (
-              <div key={skill.title}>
-                <h3>{skill.title}</h3>
-                <p>{skill.text}</p>
-              </div>
-            ))}
-          </div>
-          <div className="education">
-            <h3>Education</h3>
-            <p>
-              Diploma in Computer Engineering
-              <br />
-              Government Polytechnic Jamnagar, 2025
-            </p>
-          </div>
-          {expanded && (
-            <div className="education">
-              <h3>Learning & certifications</h3>
-              <ul>
-                {certifications.map((c) => (
-                  <li key={c}>{c}</li>
-                ))}
-              </ul>
-            </div>
-          )}
         </Reveal>
       </div>
     </section>
@@ -235,56 +190,49 @@ export function ContactSection({ onMessage, onAssistant }) {
       id="contact"
       aria-labelledby="contact-title"
     >
-      <div className="contact-art" aria-hidden="true">
-        <img
-          src="/images/contact-art.webp"
-          alt=""
-          width="1536"
-          height="1024"
-          loading="lazy"
-        />
-      </div>
       <div className="shell contact-content">
-        <SectionRule number="05" />
-        <Reveal>
+        <Reveal className="contact-copy">
           <h2 id="contact-title">
-            Good things
+            Have something
             <br />
-            start with a<br />
-            <em>
-              conversation<span>.</span>
-            </em>
+            in mind?
           </h2>
-          <Action href={`mailto:${personal.email}`} className="contact-email">
+          <p className="contact-deck">Let’s talk about it.</p>
+          <a href={`mailto:${personal.email}`} className="contact-email">
+            <Mail size={25} strokeWidth={1.5} aria-hidden="true" />
             {personal.email}
-          </Action>
+            <Arrow />
+          </a>
           <div className="social-links">
             <Action href={personal.github} external>
+              <img src="/icons/github.svg" width="20" height="20" alt="" />
               GitHub
             </Action>
             <Action href={personal.linkedin} external>
+              <img src="/icons/linkedin.svg" width="20" height="20" alt="" />
               LinkedIn
             </Action>
             <Action href={personal.youtube} external>
+              <img src="/icons/youtube.svg" width="20" height="20" alt="" />
               YouTube
             </Action>
             <Action href="/resume.html" external>
               View résumé
             </Action>
           </div>
-          <div className="contact-buttons">
-            <Action variant="outline" onClick={onMessage}>
-              Send a message
-            </Action>
-            <button
-              type="button"
-              className="assistant-link"
-              onClick={onAssistant}
-            >
-              Or ask my portfolio assistant
-              <Arrow size={17} />
-            </button>
-          </div>
+        </Reveal>
+        <Reveal className="contact-buttons" delay={0.08}>
+          <Action variant="primary" onClick={onMessage} arrow="right">
+            Send a message
+          </Action>
+          <button
+            type="button"
+            className="assistant-link"
+            onClick={onAssistant}
+          >
+            Or ask my portfolio assistant
+            <Arrow size={17} />
+          </button>
         </Reveal>
       </div>
     </section>
