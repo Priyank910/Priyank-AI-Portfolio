@@ -2,11 +2,11 @@
   "personal": {
     "name": "Priyank Chavda",
     "title": "Full-stack Developer & AI Builder",
-    "location": "Gujarat, India",
+    "location": "Jamjodhpur, Gujarat, India",
     "email": "priyankchavda910@gmail.com",
     "phone": "+91 9512034134",
     "github": "https://github.com/Priyank910",
-    "linkedin": "https://www.linkedin.com/in/priyank-chavda-gj",
+    "linkedin": "https://www.linkedin.com/in/priyank-chavda-ai",
     "website": "https://priyankchavda.info",
     "shortBio": "I build full-stack applications, practical AI tools, and small language-model experiments. Based in Gujarat, India.",
     "currentFocus": "Building Isoliq Inno 1, a 3M-parameter language-model research project trained from scratch, and useful software for real people.",
@@ -55,17 +55,16 @@
       "company": "Shopify E-commerce Business",
       "period": "2025",
       "highlights": [
-        "Architected and deployed multiple e-commerce stores (Clothing, Beauty) from end-to-end, establishing robust foundational infrastructure for scalability.",
-        "Optimized e-commerce architecture and streamlined user interfaces to significantly enhance the shopping experience and conversion rates.",
-        "Directed comprehensive domain management, including DNS configuration and hosting setup."
+        "Built and launched Shopify storefronts for clothing and beauty businesses.",
+        "Configured domains, DNS, and hosting; managed storefront presentation and the shopping experience."
       ]
     },
     {
       "role": "Payment Poster",
       "company": "Ifedora Services Pvt. Ltd.",
-      "period": "June 2025 - Feb 2026",
+      "period": "Jun 2025 – Feb 2026",
       "highlights": [
-        "Managed accurate posting of payments for a US medical billing company over an 8-month period, ensuring high data integrity and adherence to strict compliance protocols."
+        "Posted payments from electronic remittance advice (ERA) for a US medical billing business, maintaining accurate payment records."
       ]
     }
   ],

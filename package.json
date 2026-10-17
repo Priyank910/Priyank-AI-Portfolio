@@ -14,7 +14,8 @@
     "lint": "eslint src/client src/main.jsx scripts vite.config.js",
     "preview": "vite preview",
     "test:e2e": "npm run build && playwright test",
-    "format:check": "prettier --check src/client src/index.css index.html scripts/generate-resume.js tests playwright.config.js eslint.config.js"
+    "format:check": "prettier --check src/client src/index.css index.html scripts/generate-resume.js tests playwright.config.js eslint.config.js",
+    "resume:pdf": "node scripts/export-resume-pdf.js"
   },
   "dependencies": {
     "@fontsource-variable/manrope": "^5.3.0",

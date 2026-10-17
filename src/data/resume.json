@@ -1,0 +1,61 @@
+{
+  "summary": "Full-stack developer building web applications and AI tools. Projects include a 3M-parameter language model trained from scratch and an Android ledger used by my father.",
+  "skillGroups": [
+    {
+      "label": "Development",
+      "items": "JavaScript, TypeScript, React, Node.js, Express.js, MongoDB, Python, Django, HTML, CSS"
+    },
+    {
+      "label": "AI",
+      "items": "PyTorch, nanoGPT, Gemini API, OpenAI API, BPE tokenization, pretraining, supervised fine-tuning"
+    },
+    {
+      "label": "Tools",
+      "items": "Git, GitHub, Vite, Electron, Capacitor, Shopify, DNS configuration"
+    }
+  ],
+  "projects": [
+    {
+      "id": "isoliq-inno",
+      "bullets": [
+        "Built a 3,000,768-parameter GPT-style model on nanoGPT with PyTorch; created a custom 1,280-token byte-level BPE tokenizer and reproducible pretraining and supervised fine-tuning workflows.",
+        "Published training configurations, dataset audits, and checkpoints; used multi-prompt, multi-seed evaluation to identify limitations caused by unbalanced fine-tuning data."
+      ]
+    },
+    {
+      "id": "daily-ledger",
+      "bullets": [
+        "Built an offline Android app for my father’s paper-ledger routine; he uses it for daily bookkeeping and reports that it helps him manage the work.",
+        "Implemented local storage, income/expense entries, automatic balances, searchable history, and PDF/CSV reports; published a downloadable Android release."
+      ]
+    },
+    {
+      "id": "signal-ai",
+      "bullets": [
+        "Built an Electron desktop workspace with React and TypeScript that reads RSS news feeds and uses Gemini to turn selected stories into editable social-media drafts."
+      ]
+    },
+    {
+      "id": "blog-platform",
+      "bullets": [
+        "Built an Express/MongoDB publishing app with EJS views, Passport session authentication, post CRUD, comments, and Cloudinary image uploads."
+      ]
+    }
+  ],
+  "publicWork": "Document AI experiments and the Isoliq Inno 1 build.",
+  "languages": "Gujarati (native), English (fluent), Hindi",
+  "certificates": [
+    {
+      "label": "Full Stack Web Development with MERN & GenAI (90 Hours)",
+      "url": "https://drive.google.com/file/d/14z0yLPAU2VZJtlNqfAVi_VZnMqfwL9fX/view"
+    },
+    {
+      "label": "Generative AI Mastermind",
+      "url": "https://drive.google.com/file/d/1eN6GFW8npkkaV_EQzF83ZnnS4_2DdKZC/view"
+    },
+    {
+      "label": "Claude 101",
+      "url": "https://drive.google.com/file/d/1NqfcRFASz9Qwh6hAKybhPuZQ58g2vIMY/view"
+    }
+  ]
+}

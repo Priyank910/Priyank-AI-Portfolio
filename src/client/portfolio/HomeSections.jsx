@@ -53,8 +53,11 @@ export function Hero() {
             <Action to="/#work" variant="primary" arrow="right">
               Explore my work
             </Action>
-            <Action href="/resume.html" external>
-              View résumé
+            <Action
+              href="/priyank-chavda-resume.pdf"
+              download="Priyank-Chavda-Resume.pdf"
+            >
+              Download résumé
             </Action>
           </div>
         </div>
@@ -216,8 +219,11 @@ export function ContactSection({ onMessage, onAssistant }) {
               <img src="/icons/youtube.svg" width="20" height="20" alt="" />
               YouTube
             </Action>
-            <Action href="/resume.html" external>
-              View résumé
+            <Action
+              href="/priyank-chavda-resume.pdf"
+              download="Priyank-Chavda-Resume.pdf"
+            >
+              Download résumé
             </Action>
           </div>
         </Reveal>

@@ -46,8 +46,10 @@ The browser suite tests desktop and mobile navigation, project evidence, filters
 - `src/client/portfolio/` contains the layout, pages, dialogs and forms.
 - `src/index.css` contains the responsive design tokens and styles.
 - `public/images/` contains the authentic GitHub portrait and captured real project screenshots, optimized as WebP. The avatar source is recorded in the shared content.
+- `src/data/resume.json` holds the focused résumé selection and bullets; contact details, project stacks/links, experience, and education come from the shared portfolio data.
 - `scripts/generate-resume.js` generates `public/resume.html` and the sitemap.
-- `public/priyank-chavda-resume.pdf` is the current one-page export. After changing résumé content, open `/resume.html`, use Print / Save as PDF, and replace the PDF.
+- `public/priyank-chavda-resume.pdf` is the committed, tagged A4 export. Regenerate it with `npm run resume:pdf` after editing résumé content (install Playwright Chromium with `npx playwright install chromium`, or set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` to an existing Chromium executable). Review the PDF before committing it. Production builds serve this file without requiring Chromium.
+- The home and contact sections offer a direct PDF download; `/resume.html` remains an accessible reading and printing version. The uploaded résumé supplied the updated LinkedIn and certificate links.
 
 Isoliq Inno 1 is presented as a small educational research project, with repository evidence and limitations. Its code builds on Andrej Karpathy’s nanoGPT. Daily Ledger’s first-user story comes from Priyank; its verified React/TypeScript/Capacitor implementation and Android release are linked. Interface captures come from the actual app, with clearly labelled sample data. The Isoliq build-story video is linked from isoliq.com; channel and social links come from Priyank. Existing projects are retained, with technology descriptions corrected against their available repositories.
 
